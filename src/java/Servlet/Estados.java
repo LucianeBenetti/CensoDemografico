@@ -17,7 +17,7 @@ public class Estados extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+       
             
         File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
             
@@ -31,14 +31,12 @@ public class Estados extends HttpServlet {
         ArrayList <String> e = new ArrayList<String> ();
         for (int i = 1; i < estados.length; i++) {
             e.add(estados[i]);
-            System.out.println(estados + "\n");
         }
-
        
-        request.setAttribute("estados", estados);
+        request.setAttribute("lista", estados);
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
