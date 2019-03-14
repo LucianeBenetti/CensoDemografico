@@ -27,11 +27,12 @@ public class Estados extends HttpServlet {
         abrirArquivo.read(dados);
         
         String conteudoArquivo = new String(dados);
-        String[] estados = conteudoArquivo.split(";");
-        ArrayList <String> e = new ArrayList<String> ();
-        for (int i = 1; i < estados.length; i++) {
-            e.add(estados[i]);
+        String[] e = conteudoArquivo.split(";");
+        ArrayList <String> estados = new ArrayList<String> ();
+        for (int i = 1; i < e.length; i++) {
+            estados.add(e[i]);
         }
+        System.out.println(e);
        
         request.setAttribute("lista", estados);
 
