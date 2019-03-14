@@ -17,31 +17,33 @@ public class Estados extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-        String enviar = request.getParameter("conteudo");    
-        
-       if (enviar !=null){
-        File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
-            
-        FileInputStream encontrarArquivo = new FileInputStream(arquivoEstados);
-        DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
-        byte[] dados = new byte[encontrarArquivo.available()];
-        abrirArquivo.read(dados);
-        
-        String conteudoArquivo = new String(dados);
-        String[] e = conteudoArquivo.split(";");
-        ArrayList <String> estados = new ArrayList<String> ();
-        for (int i = 0; i < e.length; i++) {
-            estados.add(e[i]);
+
+        String enviar = request.getParameter("conteudo");
+
+        if (enviar != null) {
+            File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
+
+            FileInputStream encontrarArquivo = new FileInputStream(arquivoEstados);
+            DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
+            byte[] dados = new byte[encontrarArquivo.available()];
+            abrirArquivo.read(dados);
+
+            String conteudoArquivo = new String(dados);
+            String[] e = conteudoArquivo.split(";");
+            ArrayList<String> estados = new ArrayList<String>();
+            for (int i = 0; i < e.length; i++) {
+                estados.add(e[i]);
+            }
+
+            System.out.println(estados);
+            System.out.println("Tamanho: " + estados.size());
+
+            request.setAttribute("lista", estados);
         }
-       
-        System.out.println(estados);
-        System.out.println("Tamanho: " + estados.size());
-       
-       request.setAttribute("lista", estados);
-       }
-       request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-       
+        
+        
+        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

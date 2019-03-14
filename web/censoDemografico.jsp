@@ -61,15 +61,16 @@
                 <br /><br />
             </fieldset>     
             <%} %>
-        </form>
+       
+        
             <%
 
                 Object cidades = request.getAttribute("listaCidades");
                 if (cidades != null) {
-                    ArrayList<String> cidadesBuscadas = (ArrayList<String>) obj;
+                    ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
 
             %>
-            <form> 
+            <form action="censoDemografico.jsp" method="POST"> 
                 <fieldset><legend>Selecione uma Cidade</legend><br />
                     <select>
                         <option value="Cidades" >Selecione</option>

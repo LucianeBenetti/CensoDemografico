@@ -12,9 +12,6 @@
         <servlet-name>Estados</servlet-name>
         <url-pattern>/estados</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>estados</welcome-file>
-    </welcome-file-list>
     <servlet-mapping>
         <servlet-name>Cidades</servlet-name>
         <url-pattern>/cidades</url-pattern>
