@@ -40,8 +40,7 @@ public class Estados extends HttpServlet {
 
             request.setAttribute("lista", estados);
         }
-        
-        
+
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
     }
