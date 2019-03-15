@@ -80,7 +80,7 @@ public class Cidades extends HttpServlet {
                 arquivoCidades = new File("C:\\SENAC\\Lista3\\piaui.txt");
                 break;
             case "RJ":
-                arquivoCidades = new File("C:\\SENAC\\Lista3\\rioDeJaneiroCidade.txt");
+                arquivoCidades = new File("C:\\SENAC\\Lista3\\rioDeJaneiro.txt");
                 break;
             case "RN":
                 arquivoCidades = new File("C:\\SENAC\\Lista3\\rioGrandeDoNorte.txt");
@@ -98,7 +98,7 @@ public class Cidades extends HttpServlet {
                 arquivoCidades = new File("C:\\SENAC\\Lista3\\santaCatarina.txt");
                 break;
             case "SP":
-                arquivoCidades = new File("C:\\SENAC\\Lista3\\saoPauloCidade.txt");
+                arquivoCidades = new File("C:\\SENAC\\Lista3\\saoPaulo.txt");
                 break;
             case "SE":
                 arquivoCidades = new File("C:\\SENAC\\Lista3\\sergipe.txt");
