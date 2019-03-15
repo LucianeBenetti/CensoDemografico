@@ -93,9 +93,53 @@
                 <br /><br />
             </fieldset>     
             <%}%>
- </form> 
+
             <fieldset><legend>Tabela das Cidades Selecionadas</legend><br />
 
-    
+<!--                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Cidade</th>
+                            <th>População</th>
+                            <th>Àrea</th>
+                            <th>Densidade</th>
+                            <th>PIB</th>
+                        </tr>
+                    </thead>
+                    <%
+//                        Object cidadesTabela = request.getAttribute("lista");
+//                        if (cidadesTabela != null) {
+//                            ArrayList<CidadesBuscadas> lista = (ArrayList<CidadesBuscadas>) cidadesTabela;
+//                            for (int i = 0; i < lista.size(); i++) {
+//                                CidadesBuscadas c = lista.get(i);
+                    %>
+                    <tr>
+                        <td >
+                           <% //out.print(c.getCidade()); %>
+                        </td>
+                        <td >
+                           <% //out.print(c.getPopulacao()); %>
+                        </td>
+                        <td >
+                         <% //out.print(c.getArea()); %>                           
+                        </td>
+                        <td >
+                           <% //out.print(c.getDensidade()); %>
+                        </td>
+                        <td >
+                           <% //out.print(c.getPib()); %>
+                        </td>
+
+                    </tr>
+
+                    <%
+//                            }
+//                        } else {
+//                            out.print("Esta tela não deve se acessada diretamente.");
+//                        }
+                    %>
+                </table>
+            </fieldset>     
+           -->
     </body>
 </html>
