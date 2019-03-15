@@ -34,10 +34,6 @@ public class Estados extends HttpServlet {
             for (int i = 0; i < e.length; i++) {
                 estados.add(e[i]);
             }
-
-           // System.out.println(estados);
-           // System.out.println("Tamanho: " + estados.size());
-
             request.setAttribute("lista", estados);
         }
 

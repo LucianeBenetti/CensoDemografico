@@ -24,10 +24,10 @@
 
         <form action="cidades" method="POST" id="selecionarEstado">
             
-            <input type="text" name="estado">
+            <input type="hidden" name="estado">
             
             <input type="hidden" name="estados" value="selecionaEstado">
-            <input type="submit">
+            <input type="submit"<br><br>
 
         </form>
 
@@ -40,8 +40,7 @@
         %>
         <fieldset><legend>Selecione o Estado da Federação</legend><br />
             <select name="selecionaEstado" form="selecionarEstado">
-                <option selected disabled >Selecione um estado</option>
-                
+                <option selected disabled >Selecione um Estado</option>
                 <option value="AC" ><%out.println(estados.get(0));%></option>
                 <option value="AL" ><%out.println(estados.get(1));%></option>
                 <option value="AP" ><%out.println(estados.get(2));%></option>
@@ -86,7 +85,7 @@
         <form> 
             <fieldset><legend>Selecione uma Cidade</legend><br />
                 <select>
-                    <option value="Cidades" >Selecione</option>
+                    <option selected disabled >Selecione uma Cidade</option>
                     <option value="AC" ><%out.println(cidadesBuscadas.get(0));%></option>
                     <option value="AL" ><%out.println(cidadesBuscadas.get(1));%></option>
                     <option value="AP" ><%out.println(cidadesBuscadas.get(2));%></option>
