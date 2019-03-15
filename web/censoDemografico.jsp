@@ -4,6 +4,7 @@
     Author     : luciane
 --%>
 
+<%@page import="Servlet.CidadesBuscadas"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,9 +24,9 @@
         </form> 
 
         <form action="cidades" method="POST" id="selecionarEstado">
-            
+
             <input type="hidden" name="estado">
-            
+
             <input type="hidden" name="estados" value="selecionaEstado">
             <input type="submit"<br><br>
 
@@ -74,13 +75,11 @@
 
         <%} %>
 
-
         <%
 
             Object cidades = request.getAttribute("listaCidades");
             if (cidades != null) {
                 ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
-
         %>
         <form> 
             <fieldset><legend>Selecione uma Cidade</legend><br />
@@ -94,6 +93,9 @@
                 <br /><br />
             </fieldset>     
             <%}%>
-        </form>
+ </form> 
+            <fieldset><legend>Tabela das Cidades Selecionadas</legend><br />
+
+    
     </body>
 </html>

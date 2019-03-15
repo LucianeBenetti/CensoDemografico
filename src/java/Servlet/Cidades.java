@@ -3,9 +3,11 @@ package Servlet;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -105,7 +107,7 @@ public class Cidades extends HttpServlet {
                 arquivoCidades = new File("C:\\SENAC\\Lista3\\tocantins.txt");
 
             default:
-                System.out.println("POr favor. digite um estado!");
+                System.out.println("Por favor. digite um estado!");
         }
         FileInputStream encontrarArquivo = new FileInputStream(arquivoCidades);
         DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
@@ -119,9 +121,20 @@ public class Cidades extends HttpServlet {
             cidades.add(c[i]);
         }
 
-        System.out.println(cidades);
-        System.out.println("Tamanho: " + cidades.size());
-
+//        ArrayList<CidadesBuscadas> lista = new ArrayList<CidadesBuscadas>();
+//        String[] registros = conteudoArquivo.split("\n");
+//        for (int i = 0; i < registros.length; i++) {
+//            String registro = registros[i];
+//            String[] campos = registro.split(";");
+//            String cidade = campos[0];
+//            String populacao = campos[1];
+//            String area = campos[2];
+//            String densidade = campos[3];
+//            String pib = campos[4];
+//            CidadesBuscadas cidBusc = new CidadesBuscadas(cidade, populacao, area, densidade, pib);
+//            lista.add(cidBusc);
+//        }
+//        request.setAttribute("lista", lista);
         request.setAttribute("listaCidades", cidades);
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
