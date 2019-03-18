@@ -25,13 +25,10 @@
 
         <form action="cidades" method="POST" id="selecionarEstado">
 
-            <input type="hidden" name="estado">
-
-            <input type="hidden" name="estados" value="selecionaEstado">
+            <input type="hidden" name="estados" value="estadoSelecionado">
             <input type="submit"<br><br>
 
         </form>
-
         <%
 
             Object obj = request.getAttribute("lista");
@@ -40,7 +37,7 @@
 
         %>
         <fieldset><legend>Selecione o Estado da Federação</legend><br />
-            <select name="selecionaEstado" form="selecionarEstado">
+            <select name="estadoSelecionado" form="selecionarEstado">
                 <option selected disabled >Selecione um Estado</option>
                 <option value="AC" ><%out.println(estados.get(0));%></option>
                 <option value="AL" ><%out.println(estados.get(1));%></option>
@@ -82,64 +79,81 @@
                 ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
         %>
         <form> 
-            <fieldset><legend>Selecione uma Cidade</legend><br />
+            <fieldset><legend>Cidades do Estado</legend><br />
                 <select>
-                    <option selected disabled >Selecione uma Cidade</option>
-                    <option value="AC" ><%out.println(cidadesBuscadas.get(0));%></option>
-                    <option value="AL" ><%out.println(cidadesBuscadas.get(1));%></option>
-                    <option value="AP" ><%out.println(cidadesBuscadas.get(2));%></option>
-                    <option value="AM" ><%out.println(cidadesBuscadas.get(3));%></option>
+                    <option selected disabled >Cidades</option>
+                    <option value="cidade1" ><%out.println(cidadesBuscadas.get(0));%></option>
+                    <option value="cidade2" ><%out.println(cidadesBuscadas.get(1));%></option>
+                    <option value="cidade3" ><%out.println(cidadesBuscadas.get(2));%></option>
+                    <option value="cidade4" ><%out.println(cidadesBuscadas.get(3));%></option>
                 </select>
                 <br /><br />
-            </fieldset>     
-            <%}%>
-
-            <fieldset><legend>Tabela das Cidades Selecionadas</legend><br />
-
-<!--                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Cidade</th>
-                            <th>População</th>
-                            <th>Àrea</th>
-                            <th>Densidade</th>
-                            <th>PIB</th>
-                        </tr>
-                    </thead>
-                    <%
-//                        Object cidadesTabela = request.getAttribute("lista");
-//                        if (cidadesTabela != null) {
-//                            ArrayList<CidadesBuscadas> lista = (ArrayList<CidadesBuscadas>) cidadesTabela;
-//                            for (int i = 0; i < lista.size(); i++) {
-//                                CidadesBuscadas c = lista.get(i);
-                    %>
+            </fieldset> 
+        </form>
+            <br />
+            
+            Tabela das Cidades do Estado Selecionado<br /><br />
+            <form action="gravardadoscidades" method="POST">
+            <table border="1">
+                <thead>
                     <tr>
-                        <td >
-                           <% //out.print(c.getCidade()); %>
-                        </td>
-                        <td >
-                           <% //out.print(c.getPopulacao()); %>
-                        </td>
-                        <td >
-                         <% //out.print(c.getArea()); %>                           
-                        </td>
-                        <td >
-                           <% //out.print(c.getDensidade()); %>
-                        </td>
-                        <td >
-                           <% //out.print(c.getPib()); %>
-                        </td>
-
+                        <th>Cidade</th>
+                        <th>População</th>
+                        <th>Àrea</th>
+                        <th>Densidade</th>
+                        <th>PIB</th>
                     </tr>
-
-                    <%
-//                            }
-//                        } else {
-//                            out.print("Esta tela não deve se acessada diretamente.");
-//                        }
-                    %>
-                </table>
-            </fieldset>     
-           -->
+                </thead>
+                <tr>
+                    <td ><input type="text" name="cidade1" value="<%= cidadesBuscadas.get(0) %>" ></td>     
+                    <td ><input type="text" name="pop1"></td>
+                    <td ><input type="text" name="area1"></td>
+                    <td ><input type="text" name="dens1"></td>
+                    <td ><input type="text" name="pib1"></td>
+                </tr>
+                <tr>
+                    <td><%out.println(cidadesBuscadas.get(1));%></td>     
+                    <td ><input type="text" name="pop2"></td>
+                    <td ><input type="text" name="area2"></td>
+                    <td ><input type="text" name="dens2"></td>
+                    <td ><input type="text" name="pib2"></td>
+                </tr>
+                <tr>
+                    <td><%out.println(cidadesBuscadas.get(2));%></td>     
+                    <td ><input type="text" name="pop3"></td>
+                    <td ><input type="text" name="area3"></td>
+                    <td ><input type="text" name="dens3"></td>
+                    <td ><input type="text" name="pib3"></td>
+                </tr>
+                <tr>
+                    <td><%out.println(cidadesBuscadas.get(3));%></td>     
+                    <td ><input type="text" name="pop4"></td>
+                    <td ><input type="text" name="area4"></td>
+                    <td ><input type="text" name="dens4"></td>
+                    <td ><input type="text" name="pib4"></td>
+                </tr>
+              
+            </table><br /><br />
+            
+                    <input type="submit" value="Gravar Dados">
+                    
+            <%}%>
+            
+            
+            </form>
+           <%
+//         Object arquivoGravado= request.getParameter("arquivoGravado");
+//         
+//         if(arquivoGravado!=null){
+//             
+//             out.println ("Arquivo gravado com sucesso!");
+//             
+//         }else{
+//            
+//             out.println ("Não foi possível gravar o arquivo!");
+//          
+//         }
+         %>
+            
     </body>
 </html>

@@ -20,7 +20,7 @@ public class Cidades extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String estado = request.getParameter("selecionaEstado");
+        String estado = request.getParameter("estadoSelecionado");
         System.out.print(estado);
         File arquivoCidades = null;
 
@@ -121,20 +121,7 @@ public class Cidades extends HttpServlet {
             cidades.add(c[i]);
         }
 
-//        ArrayList<CidadesBuscadas> lista = new ArrayList<CidadesBuscadas>();
-//        String[] registros = conteudoArquivo.split("\n");
-//        for (int i = 0; i < registros.length; i++) {
-//            String registro = registros[i];
-//            String[] campos = registro.split(";");
-//            String cidade = campos[0];
-//            String populacao = campos[1];
-//            String area = campos[2];
-//            String densidade = campos[3];
-//            String pib = campos[4];
-//            CidadesBuscadas cidBusc = new CidadesBuscadas(cidade, populacao, area, densidade, pib);
-//            lista.add(cidBusc);
-//        }
-//        request.setAttribute("lista", lista);
+
         request.setAttribute("listaCidades", cidades);
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
