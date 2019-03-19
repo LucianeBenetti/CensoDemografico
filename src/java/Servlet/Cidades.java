@@ -22,6 +22,7 @@ public class Cidades extends HttpServlet {
 
         String estado = request.getParameter("estadoSelecionado");
         System.out.print(estado);
+        
         File arquivoCidades = null;
 
         switch (estado) {
@@ -112,7 +113,7 @@ public class Cidades extends HttpServlet {
         FileInputStream encontrarArquivo = new FileInputStream(arquivoCidades);
         DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
         byte[] dados = new byte[encontrarArquivo.available()];
-        abrirArquivo.read(dados);
+        abrirArquivo.readFully(dados);
 
         String conteudoArquivo = new String(dados);
         String[] c = conteudoArquivo.split(";");
@@ -120,6 +121,102 @@ public class Cidades extends HttpServlet {
         for (int i = 0; i < c.length; i++) {
             cidades.add(c[i]);
         }
+        
+          
+      // File conteudoCidades = null;
+//        switch (cidades.toString()) {
+//            case "Rio Branco":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\rioBranco.txt");
+//                break;
+//            case "Maceio":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\maceio.txt");
+//                break;
+//            case "Macapa":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\macapa.txt");
+//                break;
+//            case "Manaus":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\manaus.txt");
+//                break;
+//            case "Salvador":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\salvador.txt");
+//                break;
+//            case "Fortaleza":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\fortaleza.txt");
+//                break;
+//            case "Brasilia":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\brasilia.txt");
+//                break;
+//            case "Vitoria":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\vitoria.txt");
+//                break;
+//            case "Goiania":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\goiania.txt");
+//                break;
+//            case "Sao Luis":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\saoLuis.txt");
+//                break;
+//            case "Cuiaba":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\cuiaba.txt");
+//                break;
+//            case "Campo Grande":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\campoGrande.txt");
+//                break;
+//            case "Belo Horizonte":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\beloHorizonte.txt");
+//                break;
+//            case "Belem":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\belem.txt");
+//                break;
+//            case "Joao Pessoa":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\joaoPessoa.txt");
+//                break;
+//            case "Curitiba":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\curitiba.txt");
+//                break;
+//            case "Recife":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\recife.txt");
+//                break;
+//            case "Terezina":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\terezina.txt");
+//                break;
+//            case "Rio de Janeiro":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\rioDeJaneiroCidade.txt");
+//                break;
+//            case "Natal":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\natal.txt");
+//                break;
+//            case "Porto Alegre":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\portoAlegre.txt");
+//                break;
+//            case "Porto Velho":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\portoVelho.txt");
+//                break;
+//            case "Boa Vista":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\boaVista.txt");
+//                break;
+//            case "Florianopolis":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\florianopolis.txt");
+//                break;
+//            case "Sao Paulo":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\saoPauloCidade.txt");
+//                break;
+//            case "Aracaju":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\aracaju.txt");
+//                break;
+//            case "Palmas":
+//                conteudoCidades = new File("C:\\SENAC\\Lista3\\palmas.txt");
+//                break;
+//            default:
+//                System.out.println("Não foi encontrada a cidade!");
+//        }
+//
+//        FileInputStream arquivo = new FileInputStream(conteudoCidades);
+//        DataInputStream lerArquivo = new DataInputStream(arquivo);
+//        byte[] bytes = new byte[arquivo.available()];
+//        lerArquivo.readFully(bytes);
+//        String conteudo = new String(bytes);
+//        
+//        System.out.println(conteudo);
 
         request.setAttribute("listaCidades", cidades);
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);

@@ -423,6 +423,7 @@ public class GravarDadosCidades extends HttpServlet {
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
+        
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
