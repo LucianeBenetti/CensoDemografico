@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
 import java.io.DataOutputStream;
@@ -134,7 +129,6 @@ public class GravarDadosCidades extends HttpServlet {
         }
         FileOutputStream identicarArquivo = new FileOutputStream(arquivoCidades);
         DataOutputStream abrirArquivo = new DataOutputStream(identicarArquivo);
-
         abrirArquivo.writeBytes(populacao1 + ";" + area1 + ";" + densidade1 + ";" + pib1);
 
         switch (nomeCidade2) {
@@ -227,7 +221,6 @@ public class GravarDadosCidades extends HttpServlet {
         }
         identicarArquivo = new FileOutputStream(arquivoCidades);
         abrirArquivo = new DataOutputStream(identicarArquivo);
-
         abrirArquivo.writeBytes(populacao2 + ";" + area2 + ";" + densidade2 + ";" + pib2);
 
         switch (nomeCidade3) {
@@ -320,7 +313,6 @@ public class GravarDadosCidades extends HttpServlet {
         }
         identicarArquivo = new FileOutputStream(arquivoCidades);
         abrirArquivo = new DataOutputStream(identicarArquivo);
-
         abrirArquivo.writeBytes(populacao3 + ";" + area3 + ";" + densidade3 + ";" + pib3);
 
         switch (nomeCidade4) {
@@ -408,28 +400,19 @@ public class GravarDadosCidades extends HttpServlet {
             default:
                 System.out.println("Não foi encontrada a cidade!");
         }
-
         identicarArquivo = new FileOutputStream(arquivoCidades);
         abrirArquivo = new DataOutputStream(identicarArquivo);
-
         abrirArquivo.writeBytes(populacao4 + ";" + area4 + ";" + densidade4 + ";" + pib4);
 
         abrirArquivo.close();
-
         identicarArquivo.close();
+        
+        System.out.println(populacao4 + ";" + area4 + ";" + densidade4 + ";" + pib4);
 
-        String fullPath = arquivoCidades.getAbsolutePath();
-        request.setAttribute("caminho", fullPath);
+       String fullPath = arquivoCidades.getAbsolutePath();
 
-        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-
-        System.out.println(populacao1);
-
-        System.out.println(populacao2);
-
-        System.out.println(populacao3);
-
-        System.out.println(populacao4);
+       request.setAttribute("caminho", fullPath);
+       request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
     }
 

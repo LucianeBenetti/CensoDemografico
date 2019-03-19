@@ -12,10 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Censo Demografico</title>
-        <!--        <script>
-                   document.form(estados).onchange();
-                </script>-->
-
+        <script type="text/javascript" src="validarCampos.js"></script> 
     </head>
     <body>
         <form action="estados" method="POST"> 
@@ -23,12 +20,6 @@
             <input type="submit" name="conteudo" value="Acessar estados"><br><br>
         </form> 
 
-        <form action="cidades" method="POST" id="selecionarEstado">
-
-            <input type="hidden" name="estados" value="estadoSelecionado">
-            <input type="submit"<br><br>
-
-        </form>
         <%
 
             Object obj = request.getAttribute("lista");
@@ -68,7 +59,13 @@
                 <option value="TO" ><%out.println(estados.get(26));%></option>
             </select>
             <br /><br />
-        </fieldset>   
+
+            <form action="cidades" method="POST" id="selecionarEstado">
+                <input type="hidden" name="estados" value="estadoSelecionado">
+                <input type="submit"<br><br>
+
+            </form>
+        </fieldset>  
 
         <%} %>
 
@@ -93,7 +90,8 @@
         <br />
 
         Tabela das Cidades do Estado Selecionado<br /><br />
-        <form action="gravardadoscidades" method="POST">
+        <form name="formDadosDaCidade" onsubmit="return validarDadosDoFormulario()" action="gravardadoscidades" method="POST">
+
             <table border="1">
                 <thead>
                     <tr>
@@ -105,28 +103,28 @@
                     </tr>
                 </thead>
                 <tr>
-                    <td ><input type="text" name="cidade1" value="<%= cidadesBuscadas.get(0)%>" disabled ></td>     
+                    <td ><input type="text" name="cidade1" value="<%= cidadesBuscadas.get(0)%>" ></td>     
                     <td ><input type="number" name="pop1"></td>
                     <td ><input type="number" name="area1"></td>
                     <td ><input type="number" name="dens1"></td>
                     <td ><input type="number" name="pib1"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cidade2" value="<%= cidadesBuscadas.get(1)%>" disabled </td>     
+                    <td><input type="text" name="cidade2" value="<%= cidadesBuscadas.get(1)%>" </td>     
                     <td ><input type="number" name="pop2"></td>
                     <td ><input type="number" name="area2"></td>
                     <td ><input type="number" name="dens2"></td>
                     <td ><input type="number" name="pib2"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cidade3" value="<%= cidadesBuscadas.get(2)%>" disabled </td>     
+                    <td><input type="text" name="cidade3" value="<%= cidadesBuscadas.get(2)%>"  </td>     
                     <td ><input type="number" name="pop3"></td>
                     <td ><input type="number" name="area3"></td>
                     <td ><input type="number" name="dens3"></td>
                     <td ><input type="number" name="pib3"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="cidade4" value="<%= cidadesBuscadas.get(3)%>" disabled </td>     
+                    <td><input type="text" name="cidade4" value="<%= cidadesBuscadas.get(3)%>"  </td>     
                     <td ><input type="number" name="pop4"></td>
                     <td ><input type="number" name="area4"></td>
                     <td ><input type="number" name="dens4"></td>
@@ -143,10 +141,10 @@
         </form>
         <%
             if (request.getAttribute("caminho") == null) {
-                out.println("Arquivo ainda não existente no servidor");
+                out.println("Arquivo ainda não foi gravado!");
             } else {
                 String fullPath = (String) request.getAttribute("caminho");
-                out.println("Arquivo gravado servidor!");
+                out.println("Arquivo gravado com sucesso!");
             }
         %>
 

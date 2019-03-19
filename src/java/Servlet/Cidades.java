@@ -121,9 +121,7 @@ public class Cidades extends HttpServlet {
             cidades.add(c[i]);
         }
 
-
         request.setAttribute("listaCidades", cidades);
-
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
     }
