@@ -4,7 +4,6 @@
     Author     : luciane
 --%>
 
-<%@page import="Servlet.CidadesBuscadas"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
