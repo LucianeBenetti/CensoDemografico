@@ -10,16 +10,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Censo Demografico</title>
+        <link rel="stylesheet" type="text/css" href="censoDemografico.css">
         <script type="text/javascript" src="validarCampos.js"></script> 
+        <title>Censo demográfico</title>
     </head>
     <body>
+        
+        <div class="secao1">
+        
+        <h2>Atualização de Dados de Cidades Brasileiras</h2>
+        <h3>Escolha um estado para atualizar os dados de uma cidade:</h3><br />
+        
         <form action="estados" method="POST"> 
-            <h2>Listar Estados Brasileiros</h2><br />
-            <input type="submit" name="conteudo" value="Acessar estados"><br><br>
-        </form> 
-
-        <%
+            
+            <input type="submit" name="conteudo" value="Acessar Lista de Estados"><br><br>
+        </form>
+        
+          <%
 
             Object obj = request.getAttribute("lista");
             if (obj != null) {
@@ -66,8 +73,12 @@
             </form>
         </fieldset>  
 
-        <%} %>
-
+        <%} %>       
+        
+        </div> 
+      
+        <div class="secao2">
+             
         <%
 
             Object cidades = request.getAttribute("listaCidades");
@@ -145,7 +156,10 @@
                 String fullPath = (String) request.getAttribute("caminho");
                 out.println("Arquivo gravado com sucesso!");
             }
-        %>
-
+        %>         
+            
+            
+      </div>
+        
     </body>
 </html>
