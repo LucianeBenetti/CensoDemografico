@@ -229,10 +229,12 @@ public class Cidades extends HttpServlet {
                 conteudoCid1.add(conteudoCidade1[j]);
             }
         } else {
-            conteudoCid1.add(0, "0");
-            conteudoCid1.add(1, "0");
-            conteudoCid1.add(2, "0");
-            conteudoCid1.add(3, "0");
+            for (int j = 0; j < conteudoCid1.size(); j++) {
+                conteudoCid1.add(0, "0");
+                conteudoCid1.add(1, "0");
+                conteudoCid1.add(2, "0");
+                conteudoCid1.add(3, "0");
+            }
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -335,7 +337,7 @@ public class Cidades extends HttpServlet {
         conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid2 = null;
-        ;
+
         if (conteudo != null) {
             String[] conteudoCidade2 = conteudo.split(";");
             conteudoCid2 = new ArrayList<String>();
@@ -343,10 +345,12 @@ public class Cidades extends HttpServlet {
                 conteudoCid2.add(conteudoCidade2[j]);
             }
         } else {
-            conteudoCid2.add(0, "0");
-            conteudoCid2.add(1, "0");
-            conteudoCid2.add(2, "0");
-            conteudoCid2.add(3, "0");
+            for (int j = 0; j < conteudoCid2.size(); j++) {
+                conteudoCid2.add(0, "0");
+                conteudoCid2.add(1, "0");
+                conteudoCid2.add(2, "0");
+                conteudoCid2.add(3, "0");
+            }
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -423,7 +427,7 @@ public class Cidades extends HttpServlet {
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\rorainopolis.txt");
                     break;
                 case "Blumenau":
-                    conteudoCidades = new File("C:\\SENAC\\Lista3\\bumenau.txt");
+                    conteudoCidades = new File("C:\\SENAC\\Lista3\\blumenau.txt");
                     break;
                 case "Campinas":
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\campinas.txt");
@@ -455,10 +459,12 @@ public class Cidades extends HttpServlet {
                 conteudoCid3.add(conteudoCidade3[j]);
             }
         } else {
-            conteudoCid3.add(0, "0");
-            conteudoCid3.add(1, "0");
-            conteudoCid3.add(2, "0");
-            conteudoCid3.add(3, "0");
+            for (int j = 0; j < conteudoCid3.size(); j++) {
+                conteudoCid3.add(0, "0");
+                conteudoCid3.add(1, "0");
+                conteudoCid3.add(2, "0");
+                conteudoCid3.add(3, "0");
+            }
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -557,6 +563,7 @@ public class Cidades extends HttpServlet {
         conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid4 = null;
+
         if (conteudo != null) {
             String[] conteudoCidade4 = conteudo.split(";");
             conteudoCid4 = new ArrayList<String>();
@@ -564,12 +571,15 @@ public class Cidades extends HttpServlet {
                 conteudoCid4.add(conteudoCidade4[j]);
             }
         } else {
-            conteudoCid4.add(0, "0");
-            conteudoCid4.add(1, "0");
-            conteudoCid4.add(2, "0");
-            conteudoCid4.add(3, "0");
+            for (int j = 0; j < conteudoCid4.size(); j++) {
+                conteudoCid4.add(0, "0");
+                conteudoCid4.add(1, "0");
+                conteudoCid4.add(2, "0");
+                conteudoCid4.add(3, "0");
+            }
         }
 
+        System.out.print(conteudoCid1);
         request.setAttribute("conteudo1", conteudoCid1);
         request.setAttribute("conteudo2", conteudoCid2);
         request.setAttribute("conteudo3", conteudoCid3);
