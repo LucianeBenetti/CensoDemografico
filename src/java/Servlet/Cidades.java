@@ -222,20 +222,17 @@ public class Cidades extends HttpServlet {
         String conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid1 = null;
-        String[] conteudoCidade1 = null;
-        if (dadosArquivo != null) {
-            conteudoCidade1 = conteudo.split(";");
+        if (conteudo != null) {
+            String[] conteudoCidade1 = conteudo.split(";");
             conteudoCid1 = new ArrayList<String>();
             for (int j = 0; j < conteudoCidade1.length; j++) {
                 conteudoCid1.add(conteudoCidade1[j]);
             }
         } else {
-           // for (int k = 0; k < conteudoCidade1.length; k++) {
-                conteudoCid1.add(0, "0");
-                conteudoCid1.add(1, "0");
-                conteudoCid1.add(2, "0");
-                conteudoCid1.add(3, "0");
-          //  }
+            conteudoCid1.add(0, "0");
+            conteudoCid1.add(1, "0");
+            conteudoCid1.add(2, "0");
+            conteudoCid1.add(3, "0");
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -338,20 +335,18 @@ public class Cidades extends HttpServlet {
         conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid2 = null;
-        String[] conteudoCidade2 = null;
-        if (dadosArquivo != null) {
-            conteudoCidade2 = conteudo.split(";");
+        ;
+        if (conteudo != null) {
+            String[] conteudoCidade2 = conteudo.split(";");
             conteudoCid2 = new ArrayList<String>();
             for (int j = 0; j < conteudoCidade2.length; j++) {
                 conteudoCid2.add(conteudoCidade2[j]);
             }
         } else {
-           // for (int k = 0; k < conteudoCidade2.length; k++) {
-                conteudoCid2.add(0, "0");
-                conteudoCid2.add(1, "0");
-                conteudoCid2.add(2, "0");
-                conteudoCid2.add(3, "0");
-           // }
+            conteudoCid2.add(0, "0");
+            conteudoCid2.add(1, "0");
+            conteudoCid2.add(2, "0");
+            conteudoCid2.add(3, "0");
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -451,22 +446,19 @@ public class Cidades extends HttpServlet {
         conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid3 = null;
-        String[] conteudoCidade3 = null;
-        if (dadosArquivo != null) {
-            conteudoCidade3 = conteudo.split(";");
+
+        if (conteudo != null) {
+            String[] conteudoCidade3 = conteudo.split(";");
             conteudoCid3 = new ArrayList<String>();
 
             for (int j = 0; j < conteudoCidade3.length; j++) {
                 conteudoCid3.add(conteudoCidade3[j]);
             }
         } else {
-           // for (int k = 0; k < conteudoCidade3.length; k++) {
-
-                conteudoCid3.add(0, "0");
-                conteudoCid3.add(1, "0");
-                conteudoCid3.add(2, "0");
-                conteudoCid3.add(3, "0");
-          //  }
+            conteudoCid3.add(0, "0");
+            conteudoCid3.add(1, "0");
+            conteudoCid3.add(2, "0");
+            conteudoCid3.add(3, "0");
         }
 
         for (int i = 0; i < cidades.size(); i++) {
@@ -565,20 +557,17 @@ public class Cidades extends HttpServlet {
         conteudo = new String(dadosArquivo);
 
         ArrayList<String> conteudoCid4 = null;
-        String[] conteudoCidade4 = null;
-        if (dadosArquivo != null) {
-            conteudoCidade4 = conteudo.split(";");
+        if (conteudo != null) {
+            String[] conteudoCidade4 = conteudo.split(";");
             conteudoCid4 = new ArrayList<String>();
             for (int j = 0; j < conteudoCidade4.length; j++) {
                 conteudoCid4.add(conteudoCidade4[j]);
             }
         } else {
-          //  for (int k = 0; k < conteudoCidade4.length; k++) {
-                conteudoCid4.add(0, "0");
-                conteudoCid4.add(1, "0");
-                conteudoCid4.add(2, "0");
-                conteudoCid4.add(3, "0");
-           // }
+            conteudoCid4.add(0, "0");
+            conteudoCid4.add(1, "0");
+            conteudoCid4.add(2, "0");
+            conteudoCid4.add(3, "0");
         }
 
         request.setAttribute("conteudo1", conteudoCid1);
