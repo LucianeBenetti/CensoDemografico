@@ -308,9 +308,6 @@ public class GravarDadosCidades extends HttpServlet {
                 case "Lagarto":
                     arquivoCidades = new File("C:\\SENAC\\Lista3\\lagarto.txt");
                     break;
-                case "Itabaiana":
-                    arquivoCidades = new File("C:\\SENAC\\Lista3\\itabaiana.txt");
-                    break;
                 case "Araguarina":
                     arquivoCidades = new File("C:\\SENAC\\Lista3\\araguarina.txt");
                     break;
