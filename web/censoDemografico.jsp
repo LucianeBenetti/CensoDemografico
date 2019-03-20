@@ -15,159 +15,163 @@
         <title>Censo demográfico</title>
     </head>
     <body>
+        <div class="principal">
 
-        <div class="secao1">
+            <div class="secao1">
 
-            <h2>Atualização de Dados de Cidades Brasileiras</h2>
-            <h3>Escolha um estado para atualizar os dados de uma cidade:</h3><br />
+                <h5>Atualização de Dados de Cidades Brasileiras</h5>
+                <h6>Escolha um estado para atualizar os dados de uma cidade:</h6><br />
 
-            <form action="estados" method="POST"> 
+                <form action="estados" method="POST"> 
 
-                <input type="submit" name="conteudo" value="Acessar Lista de Estados"><br><br>
-            </form>
-
-            <%
-
-                Object obj = request.getAttribute("lista");
-                if (obj != null) {
-                    ArrayList<String> estados = (ArrayList<String>) obj;
-
-            %>
-            <fieldset><legend>Selecione o Estado da Federação</legend><br />
-                <select name="estadoSelecionado" form="selecionarEstado">
-                    <option selected disabled >Selecione um Estado</option>
-                    <option value="AC" ><%out.println(estados.get(0));%></option>
-                    <option value="AL" ><%out.println(estados.get(1));%></option>
-                    <option value="AP" ><%out.println(estados.get(2));%></option>
-                    <option value="AM" ><%out.println(estados.get(3));%></option>
-                    <option value="BA" ><%out.println(estados.get(4));%></option>
-                    <option value="CE" ><%out.println(estados.get(5));%></option>
-                    <option value="DF" ><%out.println(estados.get(6));%></option>
-                    <option value="ES" ><%out.println(estados.get(7));%></option>
-                    <option value="GO" ><%out.println(estados.get(8));%></option>
-                    <option value="MA" ><%out.println(estados.get(9));%></option>
-                    <option value="MT" ><%out.println(estados.get(10));%></option>
-                    <option value="MS" ><%out.println(estados.get(11));%></option>
-                    <option value="MG" ><%out.println(estados.get(12));%></option>
-                    <option value="PA" ><%out.println(estados.get(13));%></option>
-                    <option value="PB" ><%out.println(estados.get(14));%></option>
-                    <option value="PR" ><%out.println(estados.get(15));%></option>
-                    <option value="PE" ><%out.println(estados.get(16));%></option>
-                    <option value="PI" ><%out.println(estados.get(17));%></option>
-                    <option value="RJ" ><%out.println(estados.get(18));%></option>
-                    <option value="RN" ><%out.println(estados.get(19));%></option>
-                    <option value="RS" ><%out.println(estados.get(20));%></option>
-                    <option value="RO" ><%out.println(estados.get(21));%></option>
-                    <option value="RR" ><%out.println(estados.get(22));%></option>
-                    <option value="SC" ><%out.println(estados.get(23));%></option>
-                    <option value="SP" ><%out.println(estados.get(24));%></option>
-                    <option value="SE" ><%out.println(estados.get(25));%></option>
-                    <option value="TO" ><%out.println(estados.get(26));%></option>
-                </select>
-                <br /><br />
-
-                <form action="cidades" method="POST" id="selecionarEstado">
-                    <input type="hidden" name="estados" value="estadoSelecionado">
-                    <input type="submit"<br><br>
-
+                    <input type="submit" name="conteudo" value="Acessar Lista de Estados"><br><br>
                 </form>
-            </fieldset>  
 
-            <%} %>       
+                <%
 
-        </div> 
-        <div class="secao2">
-            <%
+                    Object obj = request.getAttribute("lista");
+                    if (obj != null) {
+                        ArrayList<String> estados = (ArrayList<String>) obj;
 
-                Object cidades = request.getAttribute("listaCidades");
-                Object conteudoCid1 = request.getAttribute("conteudo1");
-                Object conteudoCid2 = request.getAttribute("conteudo2");
-                Object conteudoCid3 = request.getAttribute("conteudo3");
-                Object conteudoCid4 = request.getAttribute("conteudo4");
-
-                if (cidades != null) {
-                    ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
-                    ArrayList<String> conteudoCidades1 = (ArrayList<String>) conteudoCid1;
-                    ArrayList<String> conteudoCidades2 = (ArrayList<String>) conteudoCid2;
-                    ArrayList<String> conteudoCidades3 = (ArrayList<String>) conteudoCid3;
-                    ArrayList<String> conteudoCidades4 = (ArrayList<String>) conteudoCid4;
-
-            %>
-
-            <form > 
-                <fieldset><legend>Cidades do Estado</legend><br />
-                    <select>
-                        <option selected disabled >Cidades</option>
-                        <option value="cidade1" ><%out.println(cidadesBuscadas.get(0));%></option>
-                        <option value="cidade2" ><%out.println(cidadesBuscadas.get(1));%></option>
-                        <option value="cidade3" ><%out.println(cidadesBuscadas.get(2));%></option>
-                        <option value="cidade4" ><%out.println(cidadesBuscadas.get(3));%></option>
+                %>
+                <fieldset><legend>Selecione o Estado da Federação</legend><br />
+                    <select name="estadoSelecionado" form="selecionarEstado">
+                        <option selected disabled >Selecione um Estado</option>
+                        <option value="AC" ><%out.println(estados.get(0));%></option>
+                        <option value="AL" ><%out.println(estados.get(1));%></option>
+                        <option value="AP" ><%out.println(estados.get(2));%></option>
+                        <option value="AM" ><%out.println(estados.get(3));%></option>
+                        <option value="BA" ><%out.println(estados.get(4));%></option>
+                        <option value="CE" ><%out.println(estados.get(5));%></option>
+                        <option value="DF" ><%out.println(estados.get(6));%></option>
+                        <option value="ES" ><%out.println(estados.get(7));%></option>
+                        <option value="GO" ><%out.println(estados.get(8));%></option>
+                        <option value="MA" ><%out.println(estados.get(9));%></option>
+                        <option value="MT" ><%out.println(estados.get(10));%></option>
+                        <option value="MS" ><%out.println(estados.get(11));%></option>
+                        <option value="MG" ><%out.println(estados.get(12));%></option>
+                        <option value="PA" ><%out.println(estados.get(13));%></option>
+                        <option value="PB" ><%out.println(estados.get(14));%></option>
+                        <option value="PR" ><%out.println(estados.get(15));%></option>
+                        <option value="PE" ><%out.println(estados.get(16));%></option>
+                        <option value="PI" ><%out.println(estados.get(17));%></option>
+                        <option value="RJ" ><%out.println(estados.get(18));%></option>
+                        <option value="RN" ><%out.println(estados.get(19));%></option>
+                        <option value="RS" ><%out.println(estados.get(20));%></option>
+                        <option value="RO" ><%out.println(estados.get(21));%></option>
+                        <option value="RR" ><%out.println(estados.get(22));%></option>
+                        <option value="SC" ><%out.println(estados.get(23));%></option>
+                        <option value="SP" ><%out.println(estados.get(24));%></option>
+                        <option value="SE" ><%out.println(estados.get(25));%></option>
+                        <option value="TO" ><%out.println(estados.get(26));%></option>
                     </select>
                     <br /><br />
-                </fieldset> 
-            </form>
-            <br />
 
-            Tabela das Cidades do Estado Selecionado<br /><br />
-            <form name="formDadosDaCidade" onsubmit="return validarDadosDoFormulario()" action="gravardadoscidades" method="POST">
+                    <form action="cidades" method="POST" id="selecionarEstado">
+                        <input type="hidden" name="estados" value="estadoSelecionado">
+                        <input type="submit"<br><br>
 
-                <table border="1">
-                    <thead>
+                    </form>
+                </fieldset>  
+
+                <%} %>       
+
+            </div> 
+            <div class="secao2">
+                <%
+
+                    Object cidades = request.getAttribute("listaCidades");
+                    Object conteudoCid1 = request.getAttribute("conteudo1");
+                    Object conteudoCid2 = request.getAttribute("conteudo2");
+                    Object conteudoCid3 = request.getAttribute("conteudo3");
+                    Object conteudoCid4 = request.getAttribute("conteudo4");
+
+                    if (cidades != null) {
+                        ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
+                        ArrayList<String> conteudoCidades1 = (ArrayList<String>) conteudoCid1;
+                        ArrayList<String> conteudoCidades2 = (ArrayList<String>) conteudoCid2;
+                        ArrayList<String> conteudoCidades3 = (ArrayList<String>) conteudoCid3;
+                        ArrayList<String> conteudoCidades4 = (ArrayList<String>) conteudoCid4;
+
+                %>
+
+                <form > 
+                    <fieldset><legend>Cidades do Estado</legend><br />
+                        <select>
+                            <option selected disabled >Cidades</option>
+                            <option value="cidade1" ><%out.println(cidadesBuscadas.get(0));%></option>
+                            <option value="cidade2" ><%out.println(cidadesBuscadas.get(1));%></option>
+                            <option value="cidade3" ><%out.println(cidadesBuscadas.get(2));%></option>
+                            <option value="cidade4" ><%out.println(cidadesBuscadas.get(3));%></option>
+                        </select>
+                        <br /><br />
+                    </fieldset> 
+                </form>
+                <br />
+
+                Tabela das Cidades do Estado Selecionado<br /><br />
+                <form name="formDadosDaCidade" onsubmit="return validarDadosDoFormulario()" action="gravardadoscidades" method="POST">
+
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Cidade</th>
+                                <th>População</th>
+                                <th>Àrea</th>
+                                <th>Densidade</th>
+                                <th>PIB</th>
+                            </tr>
+                        </thead>
                         <tr>
-                            <th>Cidade</th>
-                            <th>População</th>
-                            <th>Àrea</th>
-                            <th>Densidade</th>
-                            <th>PIB</th>
+                            <td ><input type="text" name="cidade1" value="<%= cidadesBuscadas.get(0)%>" ></td>     
+                            <td ><input type="number" name="pop1" value="<%= conteudoCidades1.get(0)%>"</td>
+                            <td ><input type="number" name="area1" value="<%= conteudoCidades1.get(1)%>"></td>
+                            <td ><input type="number" name="dens1" value="<%= conteudoCidades1.get(2)%>"></td>
+                            <td ><input type="number" name="pib1" value="<%= conteudoCidades1.get(3)%>"></td>
                         </tr>
-                    </thead>
-                    <tr>
-                        <td ><input type="text" name="cidade1" value="<%= cidadesBuscadas.get(0)%>" ></td>     
-                        <td ><input type="number" name="pop1" value="<%= conteudoCidades1.get(0)%>"</td>
-                        <td ><input type="number" name="area1" value="<%= conteudoCidades1.get(1)%>"></td>
-                        <td ><input type="number" name="dens1" value="<%= conteudoCidades1.get(2)%>"></td>
-                        <td ><input type="number" name="pib1" value="<%= conteudoCidades1.get(3)%>"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="cidade2" value="<%= cidadesBuscadas.get(1)%>" </td>     
-                        <td ><input type="number" name="pop2" value="<%= conteudoCidades2.get(0)%>"></td>
-                        <td ><input type="number" name="area2" value="<%= conteudoCidades2.get(1)%>"></td>
-                        <td ><input type="number" name="dens2" value="<%= conteudoCidades2.get(2)%>"></td>
-                        <td ><input type="number" name="pib2" value="<%= conteudoCidades2.get(3)%>"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="cidade3" value="<%= cidadesBuscadas.get(2)%>"  </td>     
-                        <td ><input type="number" name="pop3" value="<%= conteudoCidades3.get(0)%>"></td>
-                        <td ><input type="number" name="area3" value="<%= conteudoCidades3.get(1)%>"></td>
-                        <td ><input type="number" name="dens3" value="<%= conteudoCidades3.get(2)%>"></td>
-                        <td ><input type="number" name="pib3" value="<%= conteudoCidades3.get(3)%>"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="cidade4" value="<%= cidadesBuscadas.get(3)%>"  </td>     
-                        <td ><input type="number" name="pop4" value="<%= conteudoCidades4.get(0)%>"></td>
-                        <td ><input type="number" name="area4" value="<%= conteudoCidades4.get(1)%>"></td>
-                        <td ><input type="number" name="dens4" value="<%= conteudoCidades4.get(2)%>"></td>
-                        <td ><input type="number" name="pib4" value="<%= conteudoCidades4.get(3)%>"></td>
-                    </tr>
+                        <tr>
+                            <td><input type="text" name="cidade2" value="<%= cidadesBuscadas.get(1)%>" </td>     
+                            <td ><input type="number" name="pop2" value="<%= conteudoCidades2.get(0)%>"></td>
+                            <td ><input type="number" name="area2" value="<%= conteudoCidades2.get(1)%>"></td>
+                            <td ><input type="number" name="dens2" value="<%= conteudoCidades2.get(2)%>"></td>
+                            <td ><input type="number" name="pib2" value="<%= conteudoCidades2.get(3)%>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="cidade3" value="<%= cidadesBuscadas.get(2)%>"  </td>     
+                            <td ><input type="number" name="pop3" value="<%= conteudoCidades3.get(0)%>"></td>
+                            <td ><input type="number" name="area3" value="<%= conteudoCidades3.get(1)%>"></td>
+                            <td ><input type="number" name="dens3" value="<%= conteudoCidades3.get(2)%>"></td>
+                            <td ><input type="number" name="pib3" value="<%= conteudoCidades3.get(3)%>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="cidade4" value="<%= cidadesBuscadas.get(3)%>"  </td>     
+                            <td ><input type="number" name="pop4" value="<%= conteudoCidades4.get(0)%>"></td>
+                            <td ><input type="number" name="area4" value="<%= conteudoCidades4.get(1)%>"></td>
+                            <td ><input type="number" name="dens4" value="<%= conteudoCidades4.get(2)%>"></td>
+                            <td ><input type="number" name="pib4" value="<%= conteudoCidades4.get(3)%>"></td>
+                        </tr>
 
-                </table><br /><br />
+                    </table><br /><br />
 
-                <input type="submit" value="Gravar Dados">
+                    <input type="submit" value="Gravar Dados">
 
-                <%}%>
-            </form>
+                    <%}%>
+                </form>
 
 
-            <%
-                if (request.getAttribute("caminho") == null) {
-                    out.println("Arquivo ainda não foi gravado!");
-                } else {
-                    String fullPath = (String) request.getAttribute("caminho");
-                    out.println("Arquivo gravado com sucesso!");
-                }
-            %>         
+                <%
+                    if (request.getAttribute("caminho") == null) {
+                        out.println("Arquivo ainda não foi gravado!");
+                    } else {
+                        String fullPath = (String) request.getAttribute("caminho");
+                        out.println("Arquivo gravado com sucesso!");
+                    }
+                %>         
 
+            </div>
+            <footer class="cabecalho"> 
+                &&copy; Luciane Benetti e Marco Sena.
+            </footer>
         </div>
-
     </body>
 </html>

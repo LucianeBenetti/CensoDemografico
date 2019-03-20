@@ -128,7 +128,6 @@ public class Cidades extends HttpServlet {
 
         for (int i = 0; i < cidades.size(); i++) {
             String cidade1 = cidades.get(i);
-
             switch (cidade1) {
                 case "Rio Branco":
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\rioBranco.txt");
@@ -239,7 +238,6 @@ public class Cidades extends HttpServlet {
 
         for (int i = 0; i < cidades.size(); i++) {
             String cidade2 = cidades.get(i);
-
             switch (cidade2) {
                 case "Cruzeiro do Sul":
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\cruzeiroDoSul.txt");
@@ -328,7 +326,6 @@ public class Cidades extends HttpServlet {
                 default:
                     System.out.println("Não foi encontrada a cidade!");
             }
-
         }
         arquivo = new FileInputStream(conteudoCidades);
         lerArquivo = new DataInputStream(arquivo);
@@ -355,7 +352,6 @@ public class Cidades extends HttpServlet {
 
         for (int i = 0; i < cidades.size(); i++) {
             String cidade3 = cidades.get(i);
-
             switch (cidade3) {
                 case "Xapuri":
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\xapuri.txt");
@@ -442,7 +438,6 @@ public class Cidades extends HttpServlet {
                     System.out.println("Não foi encontrada a cidade!");
             }
         }
-
         arquivo = new FileInputStream(conteudoCidades);
         lerArquivo = new DataInputStream(arquivo);
         dadosArquivo = new byte[arquivo.available()];
@@ -469,7 +464,6 @@ public class Cidades extends HttpServlet {
 
         for (int i = 0; i < cidades.size(); i++) {
             String cidade4 = cidades.get(i);
-
             switch (cidade4) {
                 case "Brasileia":
                     conteudoCidades = new File("C:\\SENAC\\Lista3\\brasileia.txt");
