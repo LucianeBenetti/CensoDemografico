@@ -55,14 +55,17 @@ String estado = request.getParameter("estadoSelecionado");
             conteudoCid = new ArrayList<String>();
             for (int j = 0; j < conteudoCidade.length; j++) {
                 conteudoCid.add(conteudoCidade[j]);
+                
             }
-            request.setAttribute("conteudo1", conteudoCid);
+            request.setAttribute("conteudo", conteudoCid);
+            
+            System.out.println(conteudoCid);
+               
         }
 
         request.setAttribute("listaCidades", cidades);
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
