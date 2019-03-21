@@ -23,20 +23,17 @@ public class GravarDadosCidades extends HttpServlet {
             String area = request.getParameter("area");
             String densidade = request.getParameter("densidade");
             String pib = request.getParameter("pib");
-            System.out.println(nomeCidade.);
-            System.out.println(populacao);
+            
+            File arquivoCidades = new File("C:\\SENAC\\Lista3\\" + nomeCidade + ".txt");
 
             if ((populacao != null) || (area != null) || (densidade != null) || (pib != null)) {
-                File arquivoCidades = new File("C:\\SENAC\\Lista3\\" + nomeCidade + ".txt");
 
                 FileOutputStream identicarArquivo = new FileOutputStream(arquivoCidades);
                 DataOutputStream abrirArquivo = new DataOutputStream(identicarArquivo);
                 abrirArquivo.writeBytes(populacao + ";" + area + ";" + densidade + ";" + pib);
-                abrirArquivo.close();
-                identicarArquivo.close();
+                
 
                 String fullPath = arquivoCidades.getAbsolutePath();
-
                 request.setAttribute("caminho", fullPath);
             }
         }

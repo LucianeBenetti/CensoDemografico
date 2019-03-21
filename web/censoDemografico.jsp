@@ -162,18 +162,29 @@
                         </tr>
                     </thead>
                     <% for (int i = 0; i < cidadesBuscadas.size(); i++) {%>
-                    <%
-                        String populacao = (String) request.getAttribute(i + "populacao");
-                        String area = (String) request.getAttribute(i + "area");
-                        String densidade = (String) request.getAttribute(i + "densidade");
-                        String pib = (String) request.getAttribute(i + "pib");
-                    %>
                     <tr>
                         <td ><input type="text" name="cidade" value="<%= cidadesBuscadas.get(i)%>" ></td>
-                        <td ><input type="number" name="populacao" value="<% out.print(populacao);%>"</td>
-                        <td ><input type="number" name="area" value="<% out.print(area);%>"</td>
-                        <td ><input type="number" name="densidade" value="<% out.print(densidade);%>"</td>
-                        <td ><input type="number" name="pib" value="<% out.print(pib);%>"</td>
+                    <%
+  
+                        int linhas = 0;
+                        if (request.getAttribute("conteudo") != null) {
+                            linhas = ((Integer) (request.getAttribute("conteudo"))).intValue();
+                        }
+                        
+                    %>
+
+                        <%
+                            String populacao = (String) request.getAttribute(i + "populacao");
+                            String area = (String) request.getAttribute(i + "area");
+                            String densidade = (String) request.getAttribute(i + "densidade");
+                            String pib = (String) request.getAttribute(i + "pib");
+                    %>
+                    
+                        <td ><input type="number" name="populacao" value="<%= populacao %>"</td>
+                        <td ><input type="number" name="area" value="<%= area %>"</td>
+                        <td ><input type="number" name="densidade" value="<%= densidade%>"</td>
+                        <td ><input type="number" name="pib" value="<%= pib%>"</td>
+                         
                     </tr>
 
 
