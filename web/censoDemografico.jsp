@@ -130,12 +130,8 @@
             <%
 
                 Object cidades = request.getAttribute("listaCidades");
-                Object conteudoCid = request.getAttribute("conteudo");
-
                 if (cidades != null) {
                     ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
-                    ArrayList<String> conteudoCidades = (ArrayList<String>) conteudoCid;
-
             %>
 
             <form > 
@@ -166,16 +162,20 @@
                         </tr>
                     </thead>
                     <% for (int i = 0; i < cidadesBuscadas.size(); i++) {%>
-
+                    <%
+                        String populacao = (String) request.getAttribute(i + "populacao");
+                        String area = (String) request.getAttribute(i + "area");
+                        String densidade = (String) request.getAttribute(i + "densidade");
+                        String pib = (String) request.getAttribute(i + "pib");
+                    %>
                     <tr>
-                        <td ><input type="text" name="cidade" value="<%= cidadesBuscadas.get(i)%>" ></td> 
-                        
-                    <% for (int j = 0; j < conteudoCidades.size(); j++) {%>
-
-                        <td ><input type="number" name="pop" value="<%= conteudoCidades.get(j)%>"</td>
-
-                        <% }%>
+                        <td ><input type="text" name="cidade" value="<%= cidadesBuscadas.get(i)%>" ></td>
+                        <td ><input type="number" name="populacao" value="<% out.print(populacao);%>"</td>
+                        <td ><input type="number" name="area" value="<% out.print(area);%>"</td>
+                        <td ><input type="number" name="densidade" value="<% out.print(densidade);%>"</td>
+                        <td ><input type="number" name="pib" value="<% out.print(pib);%>"</td>
                     </tr>
+
 
                     <% }%>  
                 </table><br /><br />
