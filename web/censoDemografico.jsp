@@ -131,16 +131,12 @@
 
                     Object cidades = request.getAttribute("listaCidades");
                     Object conteudoCid1 = request.getAttribute("conteudo1");
-                    Object conteudoCid2 = request.getAttribute("conteudo2");
-                    Object conteudoCid3 = request.getAttribute("conteudo3");
-                    Object conteudoCid4 = request.getAttribute("conteudo4");
+                 
 
                     if (cidades != null) {
                         ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
                         ArrayList<String> conteudoCidades1 = (ArrayList<String>) conteudoCid1;
-                        ArrayList<String> conteudoCidades2 = (ArrayList<String>) conteudoCid2;
-                        ArrayList<String> conteudoCidades3 = (ArrayList<String>) conteudoCid3;
-                        ArrayList<String> conteudoCidades4 = (ArrayList<String>) conteudoCid4;
+                        
 
                 %>
 
@@ -180,24 +176,24 @@
                         </tr>
                         <tr>
                             <td><input type="text" name="cidade2" value="<%= cidadesBuscadas.get(1)%>" </td>     
-                            <td ><input type="number" name="pop2" value="<%= conteudoCidades2.get(0)%>"></td>
-                            <td ><input type="number" name="area2" value="<%= conteudoCidades2.get(1)%>"></td>
-                            <td ><input type="number" name="dens2" value="<%= conteudoCidades2.get(2)%>"></td>
-                            <td ><input type="number" name="pib2" value="<%= conteudoCidades2.get(3)%>"></td>
+                            <td ><input type="number" name="pop2" ></td>
+                            <td ><input type="number" name="area2" ></td>
+                            <td ><input type="number" name="dens2" ></td>
+                            <td ><input type="number" name="pib2" ></td>
                         </tr>
                         <tr>
                             <td><input type="text" name="cidade3" value="<%= cidadesBuscadas.get(2)%>"  </td>     
-                            <td ><input type="number" name="pop3" value="<%= conteudoCidades3.get(0)%>"></td>
-                            <td ><input type="number" name="area3" value="<%= conteudoCidades3.get(1)%>"></td>
-                            <td ><input type="number" name="dens3" value="<%= conteudoCidades3.get(2)%>"></td>
-                            <td ><input type="number" name="pib3" value="<%= conteudoCidades3.get(3)%>"></td>
+                            <td ><input type="number" name="pop3" ></td>
+                            <td ><input type="number" name="area3" ></td>
+                            <td ><input type="number" name="dens3" ></td>
+                            <td ><input type="number" name="pib3" ></td>
                         </tr>
                         <tr>
                             <td><input type="text" name="cidade4" value="<%= cidadesBuscadas.get(3)%>"  </td>     
-                            <td ><input type="number" name="pop4" value="<%= conteudoCidades4.get(0)%>"></td>
-                            <td ><input type="number" name="area4" value="<%= conteudoCidades4.get(1)%>"></td>
-                            <td ><input type="number" name="dens4" value="<%= conteudoCidades4.get(2)%>"></td>
-                            <td ><input type="number" name="pib4" value="<%= conteudoCidades4.get(3)%>"></td>
+                            <td ><input type="number" name="pop4" ></td>
+                            <td ><input type="number" name="area4" ></td>
+                            <td ><input type="number" name="dens4" ></td>
+                            <td ><input type="number" name="pib4" ></td>
                         </tr>
 
                     </table><br /><br />
