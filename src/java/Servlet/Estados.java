@@ -20,7 +20,6 @@ public class Estados extends HttpServlet {
 
         String enviar = request.getParameter("conteudo");
 
-        if (enviar != null) {
             File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
 
             FileInputStream encontrarArquivo = new FileInputStream(arquivoEstados);
@@ -35,7 +34,6 @@ public class Estados extends HttpServlet {
                 estados.add(e[i]);
             }
             request.setAttribute("lista", estados);
-        }
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 

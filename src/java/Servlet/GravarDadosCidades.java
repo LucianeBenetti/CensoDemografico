@@ -17,7 +17,7 @@ public class GravarDadosCidades extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             String nomeCidade = request.getParameter("cidade_"+i);
             String populacao = request.getParameter("populacao_"+i);
             String area = request.getParameter("area_"+i);

@@ -164,22 +164,16 @@
                     <% for (int i = 0; i < cidadesBuscadas.size(); i++) {%>
                     <tr>
                         <td ><input readonly="" type="text" name="cidade_<%= i%>" value="<%= cidadesBuscadas.get(i)%>" ></td>
-                    <%
-  
-                        int linhas = 0;
-                        if (request.getAttribute("conteudo") != null) {
-                            linhas = ((Integer) (request.getAttribute("conteudo"))).intValue();
-                        }
-                   
+                    <%                   
                             String populacao = (String) request.getAttribute(i + "populacao");
                             String area = (String) request.getAttribute(i + "area");
                             String densidade = (String) request.getAttribute(i + "densidade");
                             String pib = (String) request.getAttribute(i + "pib");
                     %>
-                        <td ><input type="number" name="populacao_<%= i%>" value="<%= populacao %>"</td>
-                        <td ><input type="number" name="area_<%= i%>" value="<%= area %>"</td>
-                        <td ><input type="number" name="densidade_<%= i%>" value="<%= densidade%>"</td>
-                        <td ><input type="number" name="pib_<%= i%>" value="<%= pib%>"</td>
+                        <td ><input type="number" step="any" name="populacao_<%= i%>" value="<%= populacao %>"</td>
+                        <td ><input type="number" step="any" name="area_<%= i%>" value="<%= area %>"</td>
+                        <td ><input type="number" step="any" name="densidade_<%= i%>" value="<%= densidade%>"</td>
+                        <td ><input type="number" step="any" name="pib_<%= i%>" value="<%= pib%>"</td>
                          
                     </tr>
                     <% }%>  
