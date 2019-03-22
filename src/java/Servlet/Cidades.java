@@ -24,6 +24,7 @@ public class Cidades extends HttpServlet {
 
         String estado = request.getParameter("estadoSelecionado");
         File arquivoCidades = new File("C:\\SENAC\\Lista3\\" + estado + ".txt");
+
         FileInputStream encontrarArquivo = new FileInputStream(arquivoCidades);
         DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
         byte[] dados = new byte[encontrarArquivo.available()];
@@ -39,11 +40,13 @@ public class Cidades extends HttpServlet {
         for (int i = 0; i < cidades.size(); i++) {
             String cidade = cidades.get(i);
             File conteudoCidades = new File("C:\\SENAC\\Lista3\\" + cidade + ".txt");
+
             FileInputStream arquivo = new FileInputStream(conteudoCidades);
             DataInputStream lerArquivo = new DataInputStream(arquivo);
             byte[] dadosArquivo = new byte[arquivo.available()];
             lerArquivo.readFully(dadosArquivo);
             String conteudo = new String(dadosArquivo);
+
             String[] conteudoCidade = conteudo.split(";");
             for (int j = 0; j < conteudoCidade.length; j++) {
 

@@ -18,11 +18,12 @@ public class GravarDadosCidades extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         for (int i = 0; i < 5; i++) {
-            String nomeCidade = request.getParameter("cidade");
-            String populacao = request.getParameter("populacao");
-            String area = request.getParameter("area");
-            String densidade = request.getParameter("densidade");
-            String pib = request.getParameter("pib");
+            String nomeCidade = request.getParameter("cidade_"+i);
+            String populacao = request.getParameter("populacao_"+i);
+            String area = request.getParameter("area_"+i);
+            String densidade = request.getParameter("densidade_"+i);
+            String pib = request.getParameter("pib_"+i);
+            System.out.println(nomeCidade);
             
             File arquivoCidades = new File("C:\\SENAC\\Lista3\\" + nomeCidade + ".txt");
 
