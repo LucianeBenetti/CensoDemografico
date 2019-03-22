@@ -163,7 +163,7 @@
                     </thead>
                     <% for (int i = 0; i < cidadesBuscadas.size(); i++) {%>
                     <tr>
-                        <td ><input type="text" name="cidade_<%= i%>" value="<%= cidadesBuscadas.get(i)%>" ></td>
+                        <td ><input readonly="" type="text" name="cidade_<%= i%>" value="<%= cidadesBuscadas.get(i)%>" ></td>
                     <%
   
                         int linhas = 0;
