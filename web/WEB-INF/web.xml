@@ -16,6 +16,10 @@
         <servlet-name>CadastrarUsuario</servlet-name>
         <servlet-class>Servlet.CadastrarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarUsuario</servlet-name>
+        <servlet-class>Servlet.ValidarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Estados</servlet-name>
         <url-pattern>/estados</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarUsuario</servlet-name>
         <url-pattern>/cadastrarusuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarUsuario</servlet-name>
+        <url-pattern>/validarusuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

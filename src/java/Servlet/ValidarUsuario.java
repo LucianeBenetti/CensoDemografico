@@ -1,30 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
+import Classes.Pessoas;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Math.log;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sun.misc.BASE64Encoder;
 
-/**
- *
- * @author 80130917
- */
-public class CadastrarUsuario extends HttpServlet {
+public class ValidarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,32 +33,47 @@ public class CadastrarUsuario extends HttpServlet {
 
         String login = request.getParameter("nome");
         String password = request.getParameter("senha");
-        
-        if ((login != null) || (password != null)) {
-            
-            File arquivoUsuarios = new File("C:\\SENAC\\Lista3\\usuariosCadastrados.txt");
 
-            FileInputStream identicarArquivo = new FileInputStream(arquivoUsuarios);
-            DataInputStream abrirArquivo = new DataInputStream(identicarArquivo);
-            byte[] dados = new byte[identicarArquivo.available()];
-            abrirArquivo.read(dados);
-            String conteudoArquivo = new String(dados);
-            String conteudo = "";
-            if (conteudoArquivo.contains(new String(dados))) {
-                conteudo += conteudoArquivo + "\n";
-            }
-            
-            FileOutputStream encontrarArquivo = new FileOutputStream(arquivoUsuarios);
-            DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-            acessarArquivo.writeBytes(conteudo + ";" + login + ";" + MD5(password) + "\n");
+        File arquivoUsuarios = new File("C:\\SENAC\\Lista3\\usuariosCadastrados.txt");
 
-            String fullPath = arquivoUsuarios.getAbsolutePath();
-            request.setAttribute("caminho", fullPath);
+        FileInputStream identicarArquivo = new FileInputStream(arquivoUsuarios);
+        DataInputStream abrirArquivo = new DataInputStream(identicarArquivo);
+        byte[] dados = new byte[identicarArquivo.available()];
+        abrirArquivo.read(dados);
+        String conteudoArquivo = new String(dados);
+        String[] usuarios = conteudoArquivo.split("\n");
+        ArrayList<Pessoas> usuariosCadastrados = new ArrayList<Pessoas>();
+
+        for (int i = 0; i < usuarios.length; i++) {
+            String usuario = usuarios[i];
+            String[] campos = usuario.split(";");
+            String log = campos[0];
+            String senha = campos[1];
+
+            Pessoas p = new Pessoas(log, senha);
+            usuariosCadastrados.add(p);
+
         }
-        request.getRequestDispatcher("telaDeLogin.jsp").forward(request, response);
+        System.out.println(usuariosCadastrados);
 
+for (int i = 0; i < usuariosCadastrados.size(); i++) {
+  
+
+   // if (usuariosCadastrados&& senha.equals(password)) {
+//        request.setAttribute("login", nome);
+//        request.setAttribute("senha", senha);
+//
+//        System.out.println(nome + "   " + senha);
+//    }
+//
+//    
+//        else {
+             request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
+  //  }
+}
+request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
+        
     }
-
     public String MD5(String senha) {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -78,7 +85,7 @@ public class CadastrarUsuario extends HttpServlet {
         }
         return senha;
     }
-
+   
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -89,7 +96,7 @@ public class CadastrarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -103,7 +110,7 @@ public class CadastrarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -114,7 +121,7 @@ public class CadastrarUsuario extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
