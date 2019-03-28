@@ -83,26 +83,24 @@
                     ArrayList<String> estados = (ArrayList<String>) obj;
 
             %>
-            <fieldset><legend>Selecione o Estado da Federação</legend><br />
+            <form action="cidades" method="POST" >
+                <fieldset><legend>Selecione o Estado da Federação</legend><br />
 
-                <select name="estadoSelecionado" form="selecionarEstado">
-                    <option selected disabled >Selecione um Estado</option>
-                    <% for (int i = 0; i < estados.size(); i++) {%>
-               
-                    <option value="<%=estados.get(i)%>" ><%out.println(estados.get(i));%></option>
-                  
-                    <%} %>  
-                </select>
-                <br /><br />
+                    <select name="estadoSelecionado" >
+                        <option selected disabled >Selecione um Estado</option>
+                        <% for (int i = 0; i < estados.size(); i++) {%>
 
-                <form action="cidades" method="POST" id="selecionarEstado">
-                    <input type="hidden" name="estados" value="estadoSelecionado">
+                        <option value="<%=estados.get(i)%>_" ><%out.println(estados.get(i));%></option>
+
+                        <%} %>  
+                    </select>
+                    <br /><br />
                     <input type="submit"<br><br>
 
-                </form>
-            </fieldset>  
+                    </form>
+                </fieldset>  
 
-            <%} %>       
+                <%} %>       
 
         </div> 
         <div class="secao2">
