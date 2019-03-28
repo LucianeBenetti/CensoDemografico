@@ -12,6 +12,10 @@
         <servlet-name>GravarDadosCidades</servlet-name>
         <servlet-class>Servlet.GravarDadosCidades</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <servlet-class>Servlet.CadastrarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Estados</servlet-name>
         <url-pattern>/estados</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>GravarDadosCidades</servlet-name>
         <url-pattern>/gravardadoscidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarUsuario</servlet-name>
+        <url-pattern>/cadastrarusuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
