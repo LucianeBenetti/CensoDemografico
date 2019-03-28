@@ -56,10 +56,9 @@ public class ValidarUsuario extends HttpServlet {
         }
         System.out.println(usuariosCadastrados);
 
-for (int i = 0; i < usuariosCadastrados.size(); i++) {
-  
+        for (int i = 0; i < usuariosCadastrados.size(); i++) {
 
-   // if (usuariosCadastrados&& senha.equals(password)) {
+//        if (usuariosCadastrados&& senha.equals(password)) {
 //        request.setAttribute("login", nome);
 //        request.setAttribute("senha", senha);
 //
@@ -68,12 +67,13 @@ for (int i = 0; i < usuariosCadastrados.size(); i++) {
 //
 //    
 //        else {
-             request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
-  //  }
-}
-request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-        
+            request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
+            //  }
+        }
+        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
+
     }
+
     public String MD5(String senha) {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -85,7 +85,7 @@ request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
         }
         return senha;
     }
-   
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -96,7 +96,7 @@ request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -110,7 +110,7 @@ request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -121,7 +121,7 @@ request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

@@ -53,12 +53,12 @@ public class CadastrarUsuario extends HttpServlet {
             String conteudoArquivo = new String(dados);
             String conteudo = "";
             if (conteudoArquivo.contains(new String(dados))) {
-                conteudo += conteudoArquivo + "\n";
+                conteudo += conteudoArquivo;
             }
             
             FileOutputStream encontrarArquivo = new FileOutputStream(arquivoUsuarios);
             DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-            acessarArquivo.writeBytes(conteudo + ";" + login + ";" + MD5(password) + "\n");
+            acessarArquivo.writeBytes(conteudo + login + ";" + MD5(password) + "\r\n");
 
             String fullPath = arquivoUsuarios.getAbsolutePath();
             request.setAttribute("caminho", fullPath);
