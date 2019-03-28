@@ -84,35 +84,14 @@
 
             %>
             <fieldset><legend>Selecione o Estado da Federação</legend><br />
+
                 <select name="estadoSelecionado" form="selecionarEstado">
                     <option selected disabled >Selecione um Estado</option>
-                    <option value="AC" ><%out.println(estados.get(0));%></option>
-                    <option value="AL" ><%out.println(estados.get(1));%></option>
-                    <option value="AP" ><%out.println(estados.get(2));%></option>
-                    <option value="AM" ><%out.println(estados.get(3));%></option>
-                    <option value="BA" ><%out.println(estados.get(4));%></option>
-                    <option value="CE" ><%out.println(estados.get(5));%></option>
-                    <option value="DF" ><%out.println(estados.get(6));%></option>
-                    <option value="ES" ><%out.println(estados.get(7));%></option>
-                    <option value="GO" ><%out.println(estados.get(8));%></option>
-                    <option value="MA" ><%out.println(estados.get(9));%></option>
-                    <option value="MT" ><%out.println(estados.get(10));%></option>
-                    <option value="MS" ><%out.println(estados.get(11));%></option>
-                    <option value="MG" ><%out.println(estados.get(12));%></option>
-                    <option value="PA" ><%out.println(estados.get(13));%></option>
-                    <option value="PB" ><%out.println(estados.get(14));%></option>
-                    <option value="PR" ><%out.println(estados.get(15));%></option>
-                    <option value="PE" ><%out.println(estados.get(16));%></option>
-                    <option value="PI" ><%out.println(estados.get(17));%></option>
-                    <option value="RJ" ><%out.println(estados.get(18));%></option>
-                    <option value="RN" ><%out.println(estados.get(19));%></option>
-                    <option value="RS" ><%out.println(estados.get(20));%></option>
-                    <option value="RO" ><%out.println(estados.get(21));%></option>
-                    <option value="RR" ><%out.println(estados.get(22));%></option>
-                    <option value="SC" ><%out.println(estados.get(23));%></option>
-                    <option value="SP" ><%out.println(estados.get(24));%></option>
-                    <option value="SE" ><%out.println(estados.get(25));%></option>
-                    <option value="TO" ><%out.println(estados.get(26));%></option>
+                    <% for (int i = 0; i < estados.size(); i++) {%>
+               
+                    <option value="<%=estados.get(i)%>" ><%out.println(estados.get(i));%></option>
+                  
+                    <%} %>  
                 </select>
                 <br /><br />
 
@@ -134,21 +113,7 @@
                     ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
             %>
 
-            <form > 
-                <fieldset><legend>Cidades do Estado</legend><br />
-                    <select>
-                        <option selected disabled >Cidades</option>
-                        <option value="cidade1" ><%out.println(cidadesBuscadas.get(0));%></option>
-                        <option value="cidade2" ><%out.println(cidadesBuscadas.get(1));%></option>
-                        <option value="cidade3" ><%out.println(cidadesBuscadas.get(2));%></option>
-                        <option value="cidade4" ><%out.println(cidadesBuscadas.get(3));%></option>
-                    </select>
-                    <br /><br />
-                </fieldset> 
-            </form>
-            <br />
-
-            Tabela das Cidades do Estado Selecionado<br /><br />
+            <h5> Tabela das Cidades do Estado Selecionado</h5> <br /><br />
             <form name="formDadosDaCidade" onsubmit="return validarDadosDoFormulario()" action="gravardadoscidades" method="POST">
 
                 <table border="1">
@@ -164,17 +129,17 @@
                     <% for (int i = 0; i < cidadesBuscadas.size(); i++) {%>
                     <tr>
                         <td ><input readonly="" type="text" name="cidade_<%= i%>" value="<%= cidadesBuscadas.get(i)%>" ></td>
-                    <%                   
-                            String populacao = (String) request.getAttribute(i + "populacao");
-                            String area = (String) request.getAttribute(i + "area");
-                            String densidade = (String) request.getAttribute(i + "densidade");
-                            String pib = (String) request.getAttribute(i + "pib");
-                    %>
-                        <td ><input type="number" step="any" name="populacao_<%= i%>" value="<%= populacao %>"</td>
-                        <td ><input type="number" step="any" name="area_<%= i%>" value="<%= area %>"</td>
-                        <td ><input type="number" step="any" name="densidade_<%= i%>" value="<%= densidade%>"</td>
-                        <td ><input type="number" step="any" name="pib_<%= i%>" value="<%= pib%>"</td>
-                         
+                            <%
+                                String populacao = (String) request.getAttribute(i + "populacao");
+                                String area = (String) request.getAttribute(i + "area");
+                                String densidade = (String) request.getAttribute(i + "densidade");
+                                String pib = (String) request.getAttribute(i + "pib");
+                            %>
+                        <td ><input readonly="" type="number" step="any" name="populacao_<%= i%>" value="<%= populacao%>"</td>
+                        <td ><input readonly="" type="number" step="any" name="area_<%= i%>" value="<%= area%>"</td>
+                        <td ><input readonly="" type="number" step="any" name="densidade_<%= i%>" value="<%= densidade%>"</td>
+                        <td ><input readonly="" type="number" step="any" name="pib_<%= i%>" value="<%= pib%>"</td>
+
                     </tr>
                     <% }%>  
                 </table><br /><br />
