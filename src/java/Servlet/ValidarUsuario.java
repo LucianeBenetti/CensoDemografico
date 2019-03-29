@@ -33,7 +33,7 @@ public class ValidarUsuario extends HttpServlet {
 
         String login = request.getParameter("nome");
         String password = request.getParameter("senha");
-
+        
         File arquivoUsuarios = new File("C:\\SENAC\\Lista3\\usuariosCadastrados.txt");
 
         FileInputStream identicarArquivo = new FileInputStream(arquivoUsuarios);
@@ -48,30 +48,27 @@ public class ValidarUsuario extends HttpServlet {
             String usuario = usuarios[i];
             String[] campos = usuario.split(";");
             String log = campos[0];
-            String senha = campos[1];
-
-            Pessoas p = new Pessoas(log, senha);
+            String senhas = campos[1];
+            Pessoas p = new Pessoas(log, senhas);
             usuariosCadastrados.add(p);
-
-        }
+           }
         System.out.println(usuariosCadastrados);
-
+        
         for (int i = 0; i < usuariosCadastrados.size(); i++) {
-
-//        if (usuariosCadastrados&& senha.equals(password)) {
-//        request.setAttribute("login", nome);
-//        request.setAttribute("senha", senha);
-//
-//        System.out.println(nome + "   " + senha);
-//    }
-//
-//    
-//        else {
-            request.getRequestDispatcher("cadastrarUsuario.jsp").forward(request, response);
-            //  }
+            Pessoas pessoa = usuariosCadastrados.get(i);
+            String senha =MD5(password);
+           
+            if (pessoa.getLogin().equals(login) && pessoa.getSenha().equals(senha)) {;
+                request.setAttribute("login", login);
+                request.setAttribute("senha", (MD5(password)));
+                
+            } else {
+                
+                request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
+                System.out.print("Usuário não cadastrado");
+            }
         }
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-
     }
 
     public String MD5(String senha) {

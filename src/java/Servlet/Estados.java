@@ -20,20 +20,31 @@ public class Estados extends HttpServlet {
 
         String enviar = request.getParameter("conteudo");
 
-            File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
+        File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
 
-            FileInputStream encontrarArquivo = new FileInputStream(arquivoEstados);
-            DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
-            byte[] dados = new byte[encontrarArquivo.available()];
-            abrirArquivo.read(dados);
+        FileInputStream encontrarArquivo = new FileInputStream(arquivoEstados);
+        DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
+        byte[] dados = new byte[encontrarArquivo.available()];
+        abrirArquivo.read(dados);
 
-            String conteudoArquivo = new String(dados);
-            String[] e = conteudoArquivo.split(";");
-            ArrayList<String> estados = new ArrayList<String>();
-            for (int i = 0; i < e.length; i++) {
-                estados.add(e[i]);
+        String conteudoArquivo = new String(dados);
+        String[] e = conteudoArquivo.split(";");
+        ArrayList<String> estados = new ArrayList<String>();
+        for (int i = 0; i < e.length; i++) {
+            estados.add(e[i]);
+        }
+
+        int tamanho = estados.size();
+        for (int i = 0; i < tamanho - 1; i++) {
+            for (int j = 0; j < tamanho - 1 - i; j++) {
+                if (estados.get(j).compareTo(estados.get(j + 1)) > 0) {
+                    String auxiliar = estados.get(j);
+                    estados.set(j, estados.get(j + 1));
+                    estados.set(j + 1, auxiliar);
+                }
             }
-            request.setAttribute("lista", estados);
+        }
+        request.setAttribute("lista", estados);
 
         request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 

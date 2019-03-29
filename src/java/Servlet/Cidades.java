@@ -37,6 +37,17 @@ public class Cidades extends HttpServlet {
             cidades.add(c[i]);
         }
 
+        int tamanho = cidades.size();
+        for (int i = 0; i < tamanho - 1; i++) {
+            for (int j = 0; j < tamanho - 1 - i; j++) {
+                if (cidades.get(j).compareTo(cidades.get(j + 1)) > 0) {
+                    String auxiliar = cidades.get(j);
+                    cidades.set(j, cidades.get(j + 1));
+                    cidades.set(j + 1, auxiliar);
+                }
+            }
+        }
+
         for (int i = 0; i < cidades.size(); i++) {
             String cidade = cidades.get(i);
             File conteudoCidades = new File("C:\\SENAC\\Lista3\\" + cidade + ".txt");
