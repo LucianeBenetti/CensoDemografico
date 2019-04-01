@@ -38,7 +38,7 @@ public class CadastrarEstado extends HttpServlet {
         if (conteudoArquivo.contains(new String(dados))) {
             conteudo += conteudoArquivo;
         }
-
+        
         FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstados);
         DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
         acessarArquivo.writeBytes(conteudo + ";" + novoEstado);

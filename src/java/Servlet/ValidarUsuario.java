@@ -4,6 +4,7 @@ import Classes.Pessoas;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Math.log;
@@ -23,7 +24,7 @@ public class ValidarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String login = request.getParameter("nome");
-        String password = request.getParameter("senha");
+        String password = MD5(request.getParameter("senha"));
 
         File arquivoUsuarios = new File("C:\\SENAC\\Lista3\\usuariosCadastrados.txt");
 
@@ -43,25 +44,20 @@ public class ValidarUsuario extends HttpServlet {
             Pessoas p = new Pessoas(log, senhas);
             usuariosCadastrados.add(p);
         }
-       // Pessoas pessoa = new Pessoas();
-        
         for (int i = 0; i < usuariosCadastrados.size(); i++) {
-          //  pessoa = usuariosCadastrados.get(i);
+            String log = usuariosCadastrados.get(i).getLogin();
+            String senha = usuariosCadastrados.get(i).getSenha();
 
-            if (usuariosCadastrados.get(0).equals(login) && usuariosCadastrados.get(1).equals(MD5(password))){
-                    //(pessoa.getLogin().equals(login) && pessoa.getSenha().equals(MD5(password))) {;
+            if ((login.equals(log)) || (password.equals(senha))) {
                 request.setAttribute("login", login);
                 request.setAttribute("senha", password);
                 request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
+            } else {
+                request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
+                System.out.print("Usuário não cadastrado");
             }
-            else {
-
-            request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
-            System.out.print("Usuário não cadastrado");
-             }
         }
-
     }
 
     public String MD5(String senha) {
