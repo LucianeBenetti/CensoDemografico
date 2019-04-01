@@ -33,7 +33,7 @@ public class ValidarUsuario extends HttpServlet {
         byte[] dados = new byte[identicarArquivo.available()];
         abrirArquivo.read(dados);
         String conteudoArquivo = new String(dados);
-        String[] usuarios = conteudoArquivo.split("\n");
+        String[] usuarios = conteudoArquivo.split("\r\n");
         ArrayList<Pessoas> usuariosCadastrados = new ArrayList<Pessoas>();
 
         for (int i = 0; i < usuarios.length; i++) {
@@ -44,20 +44,17 @@ public class ValidarUsuario extends HttpServlet {
             Pessoas p = new Pessoas(log, senhas);
             usuariosCadastrados.add(p);
         }
-        for (int i = 0; i < usuariosCadastrados.size(); i++) {
-            String log = usuariosCadastrados.get(i).getLogin();
-            String senha = usuariosCadastrados.get(i).getSenha();
 
-            if ((login.equals(log)) || (password.equals(senha))) {
+        for (int j = 0; j < usuariosCadastrados.size(); j++) {
+            String log = usuariosCadastrados.get(j).getLogin();
+            String senha = usuariosCadastrados.get(j).getSenha();
+
+            if ((login.equals(log)) && (password.equals(senha))) {
                 request.setAttribute("login", login);
-                request.setAttribute("senha", password);
                 request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-
-            } else {
-                request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
-                System.out.print("Usuário não cadastrado");
             }
         }
+        request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
     }
 
     public String MD5(String senha) {

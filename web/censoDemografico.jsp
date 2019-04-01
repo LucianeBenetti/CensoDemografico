@@ -60,11 +60,13 @@
             </a>
         </div>
     </div>
+    
 </head>
 
 </head>
 <body>
-    <div class="principal">
+    
+       <div class="principal">
 
         <div class="secao1">
 
@@ -109,8 +111,8 @@
 
         </div> 
         <div class="secao2">
+            
             <%
-
                 Object cidades = request.getAttribute("listaCidades");
                 if (cidades != null) {
                     ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
@@ -155,16 +157,24 @@
 
             <%
                 if (request.getAttribute("caminho") == null) {
-                    out.println("Arquivo ainda não foi gravado!");
-                } else {
+                    out.println("Arquivo ainda não foi gravado!");%><br><br>
+
+                    <%} else {
                     String fullPath = (String) request.getAttribute("caminho");
                     out.println("Arquivo gravado com sucesso!");
                 }
-            %>         
-
-        </div>
+            %>      
+         </div>
+         
+          <%
+                Object nomeUsuario = request.getAttribute("login");
+                if( nomeUsuario != null){
+                    out.print("Usuário " + nomeUsuario + " autenticado com sucesso!");
+                }
+            %>   
         <footer class="cabecalho"> 
             &&copy; Luciane Benetti e Marco Sena.
+            
         </footer>
     </div>
 </body>
