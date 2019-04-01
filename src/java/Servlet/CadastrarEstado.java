@@ -1,79 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlet;
 
-import Classes.Pessoas;
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Math.log;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sun.misc.BASE64Encoder;
 
-public class ValidarUsuario extends HttpServlet {
+public class CadastrarEstado extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String login = request.getParameter("nome");
-        String password = request.getParameter("senha");
+        String novoEstado = request.getParameter("novoEstado");
 
-        File arquivoUsuarios = new File("C:\\SENAC\\Lista3\\usuariosCadastrados.txt");
+        File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
 
-        FileInputStream identicarArquivo = new FileInputStream(arquivoUsuarios);
+        FileInputStream identicarArquivo = new FileInputStream(arquivoEstados);
         DataInputStream abrirArquivo = new DataInputStream(identicarArquivo);
         byte[] dados = new byte[identicarArquivo.available()];
         abrirArquivo.read(dados);
         String conteudoArquivo = new String(dados);
-        String[] usuarios = conteudoArquivo.split("\n");
-        ArrayList<Pessoas> usuariosCadastrados = new ArrayList<Pessoas>();
-
-        for (int i = 0; i < usuarios.length; i++) {
-            String usuario = usuarios[i];
-            String[] campos = usuario.split(";");
-            String log = campos[0];
-            String senhas = campos[1];
-            Pessoas p = new Pessoas(log, senhas);
-            usuariosCadastrados.add(p);
+        String conteudo = "";
+        if (conteudoArquivo.contains(new String(dados))) {
+            conteudo += conteudoArquivo;
         }
-       // Pessoas pessoa = new Pessoas();
+
+        FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstados);
+        DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
+        acessarArquivo.writeBytes(conteudo + ";" + novoEstado);
         
-        for (int i = 0; i < usuariosCadastrados.size(); i++) {
-          //  pessoa = usuariosCadastrados.get(i);
+        FileWriter arquivo = new FileWriter ("C:\\SENAC\\Lista3\\" + novoEstado +"_" + ".txt");
+        arquivo.close();
+        
+        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
-            if (usuariosCadastrados.get(0).equals(login) && usuariosCadastrados.get(1).equals(MD5(password))){
-                    //(pessoa.getLogin().equals(login) && pessoa.getSenha().equals(MD5(password))) {;
-                request.setAttribute("login", login);
-                request.setAttribute("senha", password);
-                request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-
-            }
-            else {
-
-            request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
-            System.out.print("Usuário não cadastrado");
-             }
-        }
-
-    }
-
-    public String MD5(String senha) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("MD5");
-            digest.update(senha.getBytes());
-            BASE64Encoder encoder = new BASE64Encoder();
-            return encoder.encode(digest.digest());
-        } catch (NoSuchAlgorithmException ns) {
-            ns.printStackTrace();
-        }
-        return senha;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

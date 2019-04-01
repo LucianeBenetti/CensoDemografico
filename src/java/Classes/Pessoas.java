@@ -40,7 +40,7 @@ public class Pessoas {
 
     @Override
     public String toString() {
-        return "Pessoas{" + "login=" + login + ", senha=" + senha + '}';
+        return "login=" + login + ", senha=" + senha;
     }
     
 }

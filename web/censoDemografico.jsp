@@ -100,7 +100,12 @@
                     </form>
                 </fieldset>  
 
-                <%} %>       
+                <%} %>   
+                <form action="cadastrarEstado.jsp" method="POST">
+                    <br><br>
+                    <input type="submit" value="Cadastrar novo Estado"><br><br>
+                    
+                </form>
 
         </div> 
         <div class="secao2">
