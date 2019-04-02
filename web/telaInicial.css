@@ -1,20 +1,29 @@
-h5, h6 {text-align: center;}
-
-.principal{
-   background-color: yellow; 
-   padding: 0px;
-   margin-top: 1px;/*Margen superior com 1 pixel*/
-   float: left;/*propriedade indicando que a Área flutuará a esquerda*/
-   width: 100%; /*Ocupando 24% da largura total destinada para o corpo*/
-   height: 100%; /*Altura de 500 pixels*/
+h3, h4 {
+    text-align: center;
 }
+.principal{
+    background-color: yellow; 
+    padding: 0px;
+    margin-top: 1px;/*Margen superior com 1 pixel*/
+    float: left;/*propriedade indicando que a Área flutuará a esquerda*/
+    width: 100%; /*Ocupando 24% da largura total destinada para o corpo*/
+    height: 100%; /*Altura de 500 pixels*/
+}
+.logado{
+    background-color: rgba; 
+    padding: 5px;
+    float: right;
+    margin-top: 1px;/*Margen superior com 1 pixel*/
+    width: 100%; /*Ocupando 24% da largura total destinada para o corpo*/
+    height: 20px; /*Altura de 500 pixels*/
 
+}
 .secao1{
     background-color: buttonface; 
     padding: 5px;
     margin-top: 1px;/*Margen superior com 1 pixel*/
     float: left;/*propriedade indicando que a Área flutuará a esquerda*/
-    width: 24%; /*Ocupando 24% da largura total destinada para o corpo*/
+    width: 30%; /*Ocupando 24% da largura total destinada para o corpo*/
     height: 506px; /*Altura de 500 pixels*/
 }
 .secao2{
@@ -23,10 +32,9 @@ h5, h6 {text-align: center;}
     float: right;/*propriedade indicando que a Área flutuará a direita*/
     margin-top: 1px;/*Margen superior com 1 pixel*/
     margin-left: 0,5px;
-    width: 75%;/*Ocupando 74% da largura total destinada para o corpo*/
+    width: 68%;/*Ocupando 74% da largura total destinada para o corpo*/
     height: 506px;/*Altura de 494 pixels*/
 }
-
 .cabecalho{
     background-color: violet;/*Cor de fundo*/    
     padding: 2px;/*Margen interna de 3 pixels*/
@@ -34,6 +42,5 @@ h5, h6 {text-align: center;}
     width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
     height: 30px;/*Altura de 494 pixels*/ 
     margin-bottom: 0px;
-    
     text-align: center;
 }
