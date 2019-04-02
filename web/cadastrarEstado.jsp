@@ -11,16 +11,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    
+
     <body>
-        <h1>Tela para cadastrar Estado</h1> <br><br>
-        <form action="cadastrarestado" method="POST">
-             <fieldset><legend>Digite o nome do estado a ser cadastrado</legend><br />
-            <br>
-            <input type="text" name="novoEstado" ><br /><br />
-            <input type="submit">   <br />         
-            </fieldset> 
-        </form>
-          
+        
+        <div>
+            <h1>Tela para cadastrar Estado</h1> <br><br>
+            <form action="cadastrarestado" method="POST">
+                <fieldset><legend>Digite o nome do estado a ser cadastrado</legend><br />
+                    <br>
+                    <input type="text" name="novoEstado" ><br /><br />
+                    <input type="submit">   <br />         
+                </fieldset> 
+            </form>
+        </div>
+        <div>
+            <h1>Tela para cadastrar Cidade</h1> <br><br>
+            <form action="cadastrarcidade" method="POST">
+                <fieldset><legend>Digite o nome da cidade a ser cadastrada</legend><br />
+                    <br>
+                    <input type="text" name="novaCidade" ><br /><br />
+                    <input type="submit">   <br />         
+                </fieldset> 
+            </form>
+        </div>
+        
     </body>
 </html>
