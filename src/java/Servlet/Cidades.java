@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 public class Cidades extends HttpServlet {
@@ -71,8 +72,9 @@ public class Cidades extends HttpServlet {
         }
 
         request.setAttribute("listaCidades", cidades);
-        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
 
+        String page = request.getSession().getAttribute("user") == null ? "censoDemografico.jsp" : "censoDemograficoAutenticado.jsp";
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : censoDomografico
-    Created on : 13/03/2019, 20:30:27
+    Document   : censoDemograficoAutenticado
+    Created on : 02/04/2019, 19:13:00
     Author     : luciane
 --%>
 
@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="telaInicial.css">
         <script type="text/javascript" src="validarCampos.js"></script> 
@@ -17,28 +17,23 @@
     </head>
 
     <body>
-
+        
         <header class="logado">
-
-            <form action="telaDeLogin.jsp" method="POST">
-                <input type="submit" value="Login"> 
-
-            </form>
-
-            <form action="cadastrarUsuarios.jsp" method="POST">
-                <input type="submit" value="Não é cadastrado? Clique aqui!"> 
-
-            </form>
-
-
+                        
+                <%
+                    Object nomeUsuario = request.getAttribute("login");
+                    if (nomeUsuario != null) {%>
+                    <input type="text" readonly="" value="<%= nomeUsuario%>"> <br><br>
+                <%   } %>  
+            
         </header>
-
+          
         <div class="principal">
 
             <div class="secao1">
 
-                <h3>Dados de Cidades Brasileiras</h3>
-                <h4>Escolha um estado para listar os dados de suas cidades:</h4><br />
+                <h3>Atualização de Dados de Cidades Brasileiras</h3>
+                <h4>Escolha um estado para atualizar os dados de uma cidade:</h4><br />
 
                 <form action="estados" method="POST"> 
 
@@ -69,6 +64,12 @@
                     </fieldset>  
 
                     <%} %>   
+                    <form action="cadastrarEstado.jsp" method="POST">
+                        <br><br>
+                        <input type="submit" value="Cadastrar novo Estado"><br><br>
+
+                    </form>
+
             </div> 
             <div class="secao2">
 
@@ -79,7 +80,7 @@
                 %>
 
                 <h3> Tabela das Cidades do Estado Selecionado</h3> <br /><br />
-                <form name="formDadosDaCidade" method="POST">
+                <form name="formDadosDaCidade" onsubmit="return validarDadosDoFormulario()" action="gravardadoscidades" method="POST">
 
                     <table border="1">
                         <thead>
@@ -100,17 +101,30 @@
                                     String densidade = (String) request.getAttribute(i + "densidade");
                                     String pib = (String) request.getAttribute(i + "pib");
                                 %>
-                            <td ><input readonly="" type="number" step="any" name="populacao_<%= i%>" value="<%= populacao%>"</td>
-                            <td ><input readonly="" type="number" step="any" name="area_<%= i%>" value="<%= area%>"</td>
-                            <td ><input readonly="" type="number" step="any" name="densidade_<%= i%>" value="<%= densidade%>"</td>
-                            <td ><input readonly="" type="number" step="any" name="pib_<%= i%>" value="<%= pib%>"</td>
+                            <td ><input type="number" step="any" name="populacao_<%= i%>" value="<%= populacao%>"</td>
+                            <td ><input type="number" step="any" name="area_<%= i%>" value="<%= area%>"</td>
+                            <td ><input type="number" step="any" name="densidade_<%= i%>" value="<%= densidade%>"</td>
+                            <td ><input type="number" step="any" name="pib_<%= i%>" value="<%= pib%>"</td>
 
                         </tr>
                         <% }%>  
                     </table><br /><br />
 
+                    <input type="submit" value="Gravar Dados">
+
                     <%}%>
                 </form>
+
+
+                <%
+                    if (request.getAttribute("caminho") == null) {
+                        out.println("Arquivo ainda não foi gravado!");%><br><br>
+
+                <%} else {
+                        String fullPath = (String) request.getAttribute("caminho");
+                        out.println("Arquivo gravado com sucesso!");
+                    }
+                %>      
             </div>
 
             <footer class="cabecalho"> 

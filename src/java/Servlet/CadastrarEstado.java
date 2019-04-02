@@ -46,7 +46,7 @@ public class CadastrarEstado extends HttpServlet {
         FileWriter arquivo = new FileWriter ("C:\\SENAC\\Lista3\\" + novoEstado +"_" + ".txt");
         arquivo.close();
         
-        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
+        request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
 
     }
 

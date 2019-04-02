@@ -15,6 +15,7 @@
        
          <h1>Página de Login de Usuários</h1> <br><br>
         <fieldset><legend>Dados do Usuário</legend><br><br>
+                                                             
         <form action="validarusuario" method="post">
             Nome  : <input type="text" name="nome"> <br><br>
             Senha : <input type="password" name="senha"> <br><br>
@@ -24,5 +25,5 @@
         </fieldset>
         
         </form>
-    </body>
+    </body> 
 </html>

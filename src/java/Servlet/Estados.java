@@ -36,7 +36,7 @@ public class Estados extends HttpServlet {
 
         int tamanho = estados.size();
         for (int i = 0; i < tamanho - 1; i++) {
-            for (int j = 0; j < tamanho - 1 - i; j++) {
+            for (int j = 0; j < tamanho - 1 - i; j++) { 
                 if (estados.get(j).compareTo(estados.get(j + 1)) > 0) {
                     String auxiliar = estados.get(j);
                     estados.set(j, estados.get(j + 1));
@@ -45,9 +45,9 @@ public class Estados extends HttpServlet {
             }
         }
         request.setAttribute("lista", estados);
-
-        request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
-
+       
+        String page=request.getSession().getAttribute("user")==null ? "censoDemografico.jsp" : "censoDemograficoAutenticado.jsp";
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

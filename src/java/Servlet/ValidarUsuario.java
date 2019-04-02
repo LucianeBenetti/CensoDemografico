@@ -51,7 +51,8 @@ public class ValidarUsuario extends HttpServlet {
 
             if ((login.equals(log)) && (password.equals(senha))) {
                 request.setAttribute("login", login);
-                request.getRequestDispatcher("censoDemografico.jsp").forward(request, response);
+                request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+                request.getSession().setAttribute("user", login);
             }
         }
         request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);

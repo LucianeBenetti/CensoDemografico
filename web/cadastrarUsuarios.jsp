@@ -10,17 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
     </head>
     <body>
         <h1>Página de Cadastro de Usuários</h1> <br><br>
         <fieldset><legend>Dados do Usuário</legend><br><br>
-        <form action="cadastrarusuario" method="post">
-            Nome  : <input type="text" name="nome"> <br><br>
-            Senha : <input type="password" name="senha"> <br><br>
-            <input type="submit" name="login" value="Cadastrar"/> <br>
 
-        </form>    
+            <h3>Usuário não Cadastrado. Por favor, preencha os dados abaixo:</h3>
+            <form action="cadastrarusuario" method="post">
+                Nome  : <input type="text" name="nome"> <br><br>
+                Senha : <input type="password" name="senha"> <br><br>
+                <input type="submit" name="login" value="Cadastrar"/> <br>
+
+            </form>    
         </fieldset>
-        </body>
+    </body>
 </html>
