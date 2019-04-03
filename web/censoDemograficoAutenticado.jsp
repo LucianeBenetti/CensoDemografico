@@ -18,7 +18,7 @@
     <body>
         <header class="logado">
 
-            <%         
+            <%
                 String usuario = (String) request.getSession().getAttribute("user");
                 if (usuario != null) {%>
             Você está logado como: <input type="text" size="20" readonly="" value="<%= usuario%>"> <br><br>
@@ -58,11 +58,6 @@
                         <input type="submit" value="Gerar tabela"<br><br>
                         </form>
 
-                        <form action="cadastrarCidade.jsp" method="POST" >
-                            <br><br>
-                            <input type="submit" value="Cadastrar Cidades"<br><br>
-                        </form>
-
                     </fieldset>  
 
                     <%} %>   
@@ -70,18 +65,16 @@
                         <br><br>
                         <input type="submit" value="Cadastrar novo Estado"><br><br>
                     </form>
-                    
-                    <%
-                  // if(request.getAttribute("estadoJaExiste")==null){
-                  
-                   //     out.print("O estado já é cadastrado. Por favor, cadastre outro estado.");
-                %>
+
+                    <form action="cadastrarCidade.jsp" method="POST" >
+                        <br><br>
+                        <input type="submit" value="Cadastrar Cidades"<br><br>
+                    </form>
 
             </div> 
             <div class="secao2">
 
-                <%
-                    Object cidades = request.getAttribute("listaCidades");
+                <%                    Object cidades = request.getAttribute("listaCidades");
                     if (cidades != null) {
                         ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
                 %>
