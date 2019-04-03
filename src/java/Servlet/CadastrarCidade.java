@@ -45,7 +45,7 @@ public class CadastrarCidade extends HttpServlet {
 
         FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstado);
         DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-        acessarArquivo.writeBytes(conteudo + ";" + novaCidade);
+        acessarArquivo.writeBytes(novaCidade + ";" + conteudo);
 
         FileWriter cidade = new FileWriter("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
 
