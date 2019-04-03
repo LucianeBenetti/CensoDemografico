@@ -12,18 +12,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-       
-         <h1>Página de Login de Usuários</h1> <br><br>
-        <fieldset><legend>Dados do Usuário</legend><br><br>
-                                                             
-        <form action="validarusuario" method="post">
-            Nome  : <input type="text" name="nome"> <br><br>
-            Senha : <input type="password" name="senha"> <br><br>
-            <input type="submit" name="login" value="OK"/> <br>
 
-        </form>    
+        <h1>Página de Login de Usuários</h1> <br><br>
+        <fieldset><legend>Dados do Usuário</legend><br><br>
+
+            <form action="validarusuario" method="post">
+                Nome  : <input type="text" name="nome"> <br><br>
+                Senha : <input type="password" name="senha"> <br><br>
+                <input type="submit" name="login" value="OK"/> <br>
+
+            </form>    
         </fieldset>
-        
-        </form>
-    </body> 
+
+    </form>
+</body> 
 </html>

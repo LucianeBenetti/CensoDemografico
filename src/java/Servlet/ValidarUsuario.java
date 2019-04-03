@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sun.misc.BASE64Encoder;
 
 public class ValidarUsuario extends HttpServlet {
@@ -52,7 +53,9 @@ public class ValidarUsuario extends HttpServlet {
             if ((login.equals(log)) && (password.equals(senha))) {
                 request.setAttribute("login", login);
                 request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
-                request.getSession().setAttribute("user", login);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", login);
+                session.setMaxInactiveInterval(300);
             }
         }
         request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);

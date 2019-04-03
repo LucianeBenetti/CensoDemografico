@@ -69,8 +69,13 @@
                     <form action="cadastrarEstado.jsp" method="POST">
                         <br><br>
                         <input type="submit" value="Cadastrar novo Estado"><br><br>
-
                     </form>
+                    
+                    <%
+                  // if(request.getAttribute("estadoJaExiste")==null){
+                  
+                   //     out.print("O estado já é cadastrado. Por favor, cadastre outro estado.");
+                %>
 
             </div> 
             <div class="secao2">

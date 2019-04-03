@@ -39,15 +39,27 @@ public class CadastrarEstado extends HttpServlet {
             conteudo += conteudoArquivo;
         }
 
-        FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstados);
-        DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-        acessarArquivo.writeBytes(conteudo + ";" + novoEstado);
+        String[] estado = conteudo.split(";");
+        for (int i = 0; i < estado.length; i++) {
 
-        FileWriter arquivo = new FileWriter("C:\\SENAC\\Lista3\\" + novoEstado + "_" + ".txt");
-        arquivo.close();
-     
+            String validar = estado[i];
+            System.out.println(validar);
+            if (novoEstado.equals(validar)) {
+                request.getRequestDispatcher("cadastrarEstado.jsp").forward(request, response);
+
+            } else {
+
+                FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstados);
+                DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
+                acessarArquivo.writeBytes(conteudo + ";" + novoEstado);
+
+                FileWriter arquivo = new FileWriter("C:\\SENAC\\Lista3\\" + novoEstado + "_" + ".txt");
+                arquivo.close();
+            }
+        }
+
         request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
