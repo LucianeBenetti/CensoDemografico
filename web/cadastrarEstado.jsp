@@ -24,16 +24,7 @@
                 </fieldset> 
             </form>
         </div>
-        <div>
-            <h1>Tela para cadastrar Cidade</h1> <br><br>
-            <form action="cadastrarcidade" method="POST">
-                <fieldset><legend>Digite o nome da cidade a ser cadastrada</legend><br />
-                    <br>
-                    <input type="text" name="novaCidade" ><br /><br />
-                    <input type="submit">   <br />         
-                </fieldset> 
-            </form>
-        </div>
+        
         
     </body>
 </html>

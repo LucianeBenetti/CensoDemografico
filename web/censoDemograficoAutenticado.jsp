@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="telaInicial.css">
         <script type="text/javascript" src="validarCampos.js"></script> 
@@ -17,17 +17,17 @@
     </head>
 
     <body>
-        
+
         <header class="logado">
-                        
-                <%
-                    Object nomeUsuario = request.getAttribute("login");
-                    if (nomeUsuario != null) {%>
-                    <input type="text" readonly="" value="<%= nomeUsuario%>"> <br><br>
-                <%   } %>  
-            
+
+            <%
+                Object nomeUsuario = request.getAttribute("login");
+                if (nomeUsuario != null) {%>
+            <input type="text" readonly="" value="<%= nomeUsuario%>"> <br><br>
+            <%   } %>  
+
         </header>
-          
+
         <div class="principal">
 
             <div class="secao1">
@@ -58,9 +58,14 @@
                             <%} %>  
                         </select>
                         <br /><br />
-                        <input type="submit"<br><br>
-
+                        <input type="submit" value="Gerar tabela"<br><br>
                         </form>
+
+                        <form action="cadastrarCidade.jsp" method="POST" >
+                            <br><br>
+                            <input type="submit" value="Cadastrar Cidades"<br><br>
+                        </form>
+
                     </fieldset>  
 
                     <%} %>   

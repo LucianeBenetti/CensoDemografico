@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
 import java.io.DataInputStream;
@@ -13,23 +8,32 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CadastrarEstado extends HttpServlet {
+public class CadastrarCidade extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-
         String novoEstado = request.getParameter("novoEstado");
+        String novaCidade = request.getParameter("novaCidade");
 
-        File arquivoEstados = new File("C:\\SENAC\\Lista3\\estados.txt");
+        File arquivoEstado = new File("C:\\SENAC\\Lista3\\" + novoEstado + "_" + ".txt");
 
-        FileInputStream identicarArquivo = new FileInputStream(arquivoEstados);
+        FileInputStream identicarArquivo = new FileInputStream(arquivoEstado);
         DataInputStream abrirArquivo = new DataInputStream(identicarArquivo);
         byte[] dados = new byte[identicarArquivo.available()];
         abrirArquivo.read(dados);
@@ -39,15 +43,22 @@ public class CadastrarEstado extends HttpServlet {
             conteudo += conteudoArquivo;
         }
 
-        FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstados);
+        FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstado);
         DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-        acessarArquivo.writeBytes(conteudo + ";" + novoEstado);
+        acessarArquivo.writeBytes(conteudo + ";" + novaCidade);
 
-        FileWriter arquivo = new FileWriter("C:\\SENAC\\Lista3\\" + novoEstado + "_" + ".txt");
-        arquivo.close();
-     
+        FileWriter cidade = new FileWriter("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
+
+        File dadosCidade = new File("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
+
+        FileOutputStream encontrarCidade = new FileOutputStream(dadosCidade);
+        DataOutputStream acessarCidade = new DataOutputStream(encontrarCidade);
+        acessarCidade.writeBytes ("0" + ";" + "0" + ";"+ "0" + ";"+ "0");
+        cidade.close();
+
+        String fullPath = arquivoEstado.getAbsolutePath();
+        request.setAttribute("caminho", fullPath);
         request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
