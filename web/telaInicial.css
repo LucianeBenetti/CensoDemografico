@@ -4,36 +4,41 @@ h3, h4 {
 .principal{
     background-color: yellow; 
     padding: 0px;
-    margin-top: 1px;/*Margen superior com 1 pixel*/
+    margin-top: 0px;/*Margen superior com 1 pixel*/
+    margin-left: -8px;
+    margin-right: 0px;
     float: left;/*propriedade indicando que a Área flutuará a esquerda*/
     width: 100%; /*Ocupando 24% da largura total destinada para o corpo*/
-    height: 100%; /*Altura de 500 pixels*/
+    height: 600px; /*Altura de 500 pixels*/
 }
 .logado{
-    background-color: rgba; 
-    padding: 5px;
-    float: right;
-    margin-top: 1px;/*Margen superior com 1 pixel*/
+    background-color: gray;
+    margin-top: 0px;
+    margin-right: -8px;
+    margin-left: 0px;
+    padding: 8px;
+    float: right;    
     width: 100%; /*Ocupando 24% da largura total destinada para o corpo*/
-    height: 40px; /*Altura de 500 pixels*/
+    height: 60px; /*Altura de 500 pixels*/
 
 }
 .secao1{
     background-color: buttonface; 
     padding: 5px;
-    margin-top: 15px;/*Margen superior com 1 pixel*/
+    margin-bottom: 0px;/*Margen superior com 1 pixel*/
     float: left;/*propriedade indicando que a Área flutuará a esquerda*/
     width: 30%; /*Ocupando 24% da largura total destinada para o corpo*/
-    height: 506px; /*Altura de 500 pixels*/
+    height: 576px; /*Altura de 500 pixels*/
 }
 .secao2{
     background-color: powderblue;/*Cor de fundo*/    
     padding: 5px;/*Margen interna de 3 pixels*/
     float: right;/*propriedade indicando que a Área flutuará a direita*/
-    margin-top: 15px;/*Margen superior com 1 pixel*/
-    margin-left: 0,5px;
-    width: 68%;/*Ocupando 74% da largura total destinada para o corpo*/
-    height: 506px;/*Altura de 494 pixels*/
+    margin-right: -16px;
+    margin-bottom: 0px;/*Margen superior com 1 pixel*/
+    margin-left: 0px;
+    width: 68.5%;/*Ocupando 74% da largura total destinada para o corpo*/
+    height: 576px;/*Altura de 494 pixels*/
 }
 .cabecalho{
     background-color: violet;/*Cor de fundo*/    
@@ -41,6 +46,7 @@ h3, h4 {
     float: right;/*propriedade indicando que a Área flutuará a direita*/  
     width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
     height: 30px;/*Altura de 494 pixels*/ 
-    margin-bottom: 0px;
+    margin-top: 587px;
+    position: fixed;
     text-align: center;
 }

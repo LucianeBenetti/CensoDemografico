@@ -13,19 +13,17 @@
         <link rel="stylesheet" type="text/css" href="telaInicial.css">
         <script type="text/javascript" src="validarCampos.js"></script> 
         <title>Censo demográfico</title>
-
     </head>
 
     <body>
-
         <header class="logado">
-
-            <%
-                Object nomeUsuario = request.getAttribute("login");
-                if (nomeUsuario != null) {%>
-            <input type="text" readonly="" value="<%= nomeUsuario%>"> <br><br>
-            <%   } %>  
-
+                        
+                <%         
+                    String usuario = (String) request.getSession().getAttribute("user");
+                    if (usuario != null) {%>
+                    Você está logado como: <input type="text" size="20" readonly="" value="<%= usuario%>"> <br><br>
+                <%   } %>  
+            
         </header>
 
         <div class="principal">
