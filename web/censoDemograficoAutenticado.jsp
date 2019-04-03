@@ -17,7 +17,6 @@
 
     <body>
         <header class="logado">
-
             <%
                 String usuario = (String) request.getSession().getAttribute("user");
                 if (usuario != null) {%>
@@ -74,7 +73,7 @@
             </div> 
             <div class="secao2">
 
-                <%                    Object cidades = request.getAttribute("listaCidades");
+                <% Object cidades = request.getAttribute("listaCidades");
                     if (cidades != null) {
                         ArrayList<String> cidadesBuscadas = (ArrayList<String>) cidades;
                 %>
@@ -114,7 +113,6 @@
 
                     <%}%>
                 </form>
-
 
                 <%
                     if (request.getAttribute("caminho") == null) {

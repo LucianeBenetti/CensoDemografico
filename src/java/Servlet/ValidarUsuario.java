@@ -52,10 +52,12 @@ public class ValidarUsuario extends HttpServlet {
 
             if ((login.equals(log)) && (password.equals(senha))) {
                 request.setAttribute("login", login);
-                request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", login);
                 session.setMaxInactiveInterval(300);
+                request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+
+                // request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
             }
         }
         request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
