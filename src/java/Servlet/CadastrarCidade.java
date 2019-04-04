@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,12 +27,12 @@ public class CadastrarCidade extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         response.setContentType("text/html;charset=UTF-8");
-        String novoEstado = request.getParameter("novoEstado");
+
+        String estadoCadastrarCidade = request.getParameter("estadoCadastrarCidade");
         String novaCidade = request.getParameter("novaCidade");
 
-        File arquivoEstado = new File("C:\\SENAC\\Lista3\\" + novoEstado + "_" + ".txt");
+        File arquivoEstado = new File("C:\\SENAC\\Lista3\\" + estadoCadastrarCidade + "_" + ".txt");
 
         FileInputStream identicarArquivo = new FileInputStream(arquivoEstado);
         DataInputStream abrirArquivo = new DataInputStream(identicarArquivo);
@@ -43,22 +44,39 @@ public class CadastrarCidade extends HttpServlet {
             conteudo += conteudoArquivo;
         }
 
-        FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstado);
-        DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
-        acessarArquivo.writeBytes(novaCidade + ";" + conteudo);
+//        ArrayList<String> validar = new ArrayList<String>();
+//        String[] cidade = conteudo.split(";");
+//        for (int i = 0; i < cidade.length; i++) {
+//            validar.add(cidade[i]);
+//        }
+//
+//        String validarCidade = "";
+//        for (int i = 0; i < validar.size(); i++) {
+//            validarCidade = validar.get(i);
+//        }
+//        if (novaCidade.equals(validarCidade)) {
+//            request.getRequestDispatcher("cadastrarCidade.jsp").forward(request, response);
+//
+//        } else {
+            FileOutputStream encontrarArquivo = new FileOutputStream(arquivoEstado);
+            DataOutputStream acessarArquivo = new DataOutputStream(encontrarArquivo);
+            acessarArquivo.writeBytes(novaCidade + ";" + conteudo);
 
-        FileWriter cidade = new FileWriter("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
+            FileWriter cidadeNova = new FileWriter("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
 
-        File dadosCidade = new File("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
+            File dadosCidade = new File("C:\\SENAC\\Lista3\\" + novaCidade + ".txt");
 
-        FileOutputStream encontrarCidade = new FileOutputStream(dadosCidade);
-        DataOutputStream acessarCidade = new DataOutputStream(encontrarCidade);
-        acessarCidade.writeBytes ("0" + ";" + "0" + ";"+ "0" + ";"+ "0");
-        cidade.close();
+            FileOutputStream encontrarCidade = new FileOutputStream(dadosCidade);
+            DataOutputStream acessarCidade = new DataOutputStream(encontrarCidade);
+            acessarCidade.writeBytes("0" + ";" + "0" + ";" + "0" + ";" + "0");
+            cidadeNova.close();
 
-        String fullPath = arquivoEstado.getAbsolutePath();
-        request.setAttribute("caminho", fullPath);
+            String fullPath = arquivoEstado.getAbsolutePath();
+            request.setAttribute("caminho", fullPath);
+
+        //}
         request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

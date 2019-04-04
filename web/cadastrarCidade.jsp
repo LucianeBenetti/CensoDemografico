@@ -29,7 +29,7 @@
                 <fieldset>
                     <legend>Por gentileza, preencha os dados a seguir e clique em enviar.</legend><br />
                     <h3>Digite o nome do estado para incluir as cidades</h3>
-                    <input type="text" name="novoEstado" ><br /><br />
+                    <input type="text" name="estadoCadastrarCidade" ><br /><br />
 
                     <h3>Digite o nome da cidade a ser cadastrada</h3>
                     <br>
