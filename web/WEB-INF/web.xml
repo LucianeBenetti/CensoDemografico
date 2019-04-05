@@ -31,6 +31,10 @@
         <servlet-name>CadastrarCidade</servlet-name>
         <servlet-class>Servlet.CadastrarCidade</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logoff</servlet-name>
+        <servlet-class>Servlet.Logoff</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Estados</servlet-name>
         <url-pattern>/estados</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarCidade</servlet-name>
         <url-pattern>/cadastrarcidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logoff</servlet-name>
+        <url-pattern>/logoff</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
