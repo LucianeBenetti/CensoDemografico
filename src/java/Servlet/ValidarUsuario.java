@@ -47,29 +47,28 @@ public class ValidarUsuario extends HttpServlet {
         }
 
         System.out.println(usuariosCadastrados);
-        
+
         String log = "";
         String senha = "";
         for (int j = 0; j < usuariosCadastrados.size(); j++) {
             log = usuariosCadastrados.get(j).getLogin();
             senha = usuariosCadastrados.get(j).getSenha();
-     //  }      
-        System.out.println(log);
-        
-        if ((login.equals(log)) && (password.equals(senha))) {
-            request.setAttribute("login", login);
+            //  }      
+            System.out.println(log);
 
-            HttpSession session = request.getSession();
-            session.setAttribute("user", login);
-            session.setMaxInactiveInterval(300);
-            request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
-            // request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
-        } 
-        //else {
+            if ((login.equals(log)) && (password.equals(senha))) {
+                request.setAttribute("login", login);
+
+                HttpSession session = request.getSession();
+                session.setAttribute("user", login);
+                session.setMaxInactiveInterval(300);
+                request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+                // request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
+            }
+            //else {
         }
-            request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
-        
-        
+        request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
+
     }
 
     public String MD5(String senha) {

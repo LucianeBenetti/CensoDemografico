@@ -9,21 +9,39 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="telaInicial.css">
+        <title>Login de Usuário</title>
     </head>
-    <body>
 
-        <h1>Página de Login de Usuários</h1> <br><br>
-        <fieldset><legend>Dados do Usuário</legend><br><br>
+    <body class="corpo">
 
-            <form action="validarusuario" method="post">
-                Nome  : <input type="text" name="nome"> <br><br>
-                Senha : <input type="password" name="senha"> <br><br>
-                <input type="submit" name="login" value="OK"/> <br>
+        <div class="principal">
+            <div class="secao3">
 
-            </form>    
-        </fieldset>
+            </div>
 
-    </form>
-</body> 
+            <div class="logincadastro">
+                <fieldset><legend><a>Login de Usuários</a></legend><br><br>
+
+                    <form action="validarusuario" method="post">
+                        Nome  : <input type="text" name="nome" required=""> <br><br>
+                        Senha : <input type="password" name="senha" required=""> <br><br>
+                        <input type="submit" name="login" value="OK"/>
+
+                    </form><br> 
+
+                    <form action="censoDemografico.jsp" method="post">
+                        <input type="submit" value = "Retornar para a Página Principal">
+                    </form> 
+
+
+                </fieldset>
+            </div>
+        </form>
+
+        <div class="secao4">
+
+        </div>
+    </div>
+</body>
 </html>

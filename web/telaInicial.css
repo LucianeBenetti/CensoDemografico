@@ -1,8 +1,13 @@
+.corpo {    
+    margin-top: 0px;
+}
 h3, h4 {
     text-align: center;
 }
-.principal{
-    background-color: yellow; 
+a{
+    color: white;
+}
+.principal{    
     padding: 0px;
     margin-top: 0px;/*Margen superior com 1 pixel*/
     margin-left: -8px;
@@ -12,7 +17,7 @@ h3, h4 {
     height: 600px; /*Altura de 500 pixels*/
 }
 .logado{
-    background-color: grey;
+    background-color: gray;
     margin-top: 0px;
     margin-right: -8px;
     margin-left: 0px;
@@ -39,8 +44,61 @@ h3, h4 {
     width: 68.5%;/*Ocupando 74% da largura total destinada para o corpo*/
     height: 576px;/*Altura de 494 pixels*/
 }
+.secao3 {
+    background-color: darkslateblue;/*Cor de fundo*/    
+    float: left;/*propriedade indicando que a Área flutuará a direita*/
+    margin-top: 0px;
+    margin-right:10px; 
+    padding: 8px;
+    margin-left: 0.1px;
+    margin-bottom: 0%;/*Margen superior com 1 pixel*/
+    width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
+    height: 15px;       
+}
+.secao4 {
+    background-color: darkslateblue;/*Cor de fundo*/    
+    float: left;/*propriedade indicando que a Área flutuará a direita*/
+    margin-top: 14.7%;
+    margin-right:10px; 
+    padding: 8px;
+    margin-left: 0.1px;
+    margin-bottom: 0%;/*Margen superior com 1 pixel*/
+    width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
+    height: 15px;       
+}
+.secao5 {
+    background-color: darkslateblue;/*Cor de fundo*/    
+    float: left;/*propriedade indicando que a Área flutuará a direita*/
+    margin-top: 0px;
+    margin-right:10px; 
+    padding: 8px;
+    margin-left: 0.1px;
+    margin-bottom: 0%;/*Margen superior com 1 pixel*/
+    width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
+    height: 15px;       
+}
+.secao6 {
+    background-color: darkslateblue;/*Cor de fundo*/    
+    float: left;/*propriedade indicando que a Área flutuará a direita*/
+    margin-top: 14.69%;
+    margin-right:10px; 
+    padding: 8px;
+    margin-left: 0.1px;
+    margin-bottom: 0%;/*Margen superior com 1 pixel*/
+    width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/
+    height: 15px;       
+}
+.logincadastro {
+    background-color: gray;
+    float: right;
+    width: 40%;
+    margin-right: 30%;
+    margin-left: 0%;
+    margin-top:15%;
+    
+}
 .cabecalho{
-    background-color: violet;/*Cor de fundo*/    
+    background-color: darkslateblue;/*Cor de fundo*/    
     padding: 2px;/*Margen interna de 3 pixels*/
     float: right;/*propriedade indicando que a Área flutuará a direita*/  
     width: 100%;/*Ocupando 74% da largura total destinada para o corpo*/

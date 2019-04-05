@@ -9,21 +9,38 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="telaInicial.css">
+        <title>Cadastrar Usuários</title>
 
     </head>
-    <body>
+    <body class="corpo">
 
-        <h1>Página de Cadastro de Usuários</h1> <br><br>
-        <fieldset><legend>Dados do Usuário</legend><br><br>
+        <div class="principal">
+            <div class="secao5">
 
-            <h3>Usuário não Cadastrado. Por favor, preencha os dados abaixo:</h3>
-            <form action="cadastrarusuario" method="post">
-                Nome  : <input type="text" name="nome"> <br><br>
-                Senha : <input type="password" name="senha"> <br><br>
-                <input type="submit" name="login" value="Cadastrar"/> <br>
+            </div>
 
-            </form>    
-        </fieldset>
-    </body>
+            <div class="logincadastro">
+                <fieldset><legend><a>Insira os Dados para Cadastrar o Usuário</a></legend><br><br>
+
+                    <form action="cadastrarusuario" method="post">
+                        Nome  : <input type="text" name="nome"> <br><br>
+                        Senha : <input type="password" name="senha"> <br><br>
+                        <input type="submit" name="login" value="Cadastrar"/>                
+
+                    </form><br>
+                    <form action="censoDemografico.jsp" method="post">
+                        <input type="submit" value = "Retornar para a Página Principal">
+                    </form>                   
+
+                </fieldset>
+
+            </div>
+        </form>
+
+        <div class="secao6">
+
+        </div>
+    </div>
+</body>
 </html>

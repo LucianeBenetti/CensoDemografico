@@ -21,7 +21,7 @@
                 String usuario = (String) request.getSession().getAttribute("user");
                 if (usuario != null) {%>
             Você está logado como: <input type="text" size="20" readonly="" value="<%= usuario%>"> <br><br>
-            <%   } %>  
+            <%   }%>  
 
         </header>
         <div class="principal">
