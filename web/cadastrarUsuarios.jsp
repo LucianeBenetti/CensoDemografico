@@ -29,6 +29,7 @@
                         <input type="submit" name="login" value="Cadastrar"/>                
 
                     </form><br>
+                    
                     <form action="censoDemografico.jsp" method="post">
                         <input type="submit" value = "Retornar para a Página Principal">
                     </form>                   

@@ -95,7 +95,22 @@ a{
     margin-right: 30%;
     margin-left: 0%;
     margin-top:15%;
-    
+}
+.cadastroCidade{
+    background-color: gray;
+    float: right;
+    width: 45%;
+    margin-right: 30%;
+    margin-left: 0%;
+    margin-top:10%;
+}
+.cadastroEstado{
+    background-color: gray;
+    float: right;
+    width: 45%;
+    margin-right: 30%;
+    margin-left: 0%;
+    margin-top:10%;   
 }
 .cabecalho{
     background-color: darkslateblue;/*Cor de fundo*/    

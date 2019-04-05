@@ -9,12 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="telaInicial.css">
         <title>JSP Page</title>
     </head>
-    <body>
-
+    <body class="corpo">
         <header class="logado">
-
             <%
                 String usuario = (String) request.getSession().getAttribute("user");
                 if (usuario != null) {%>
@@ -23,21 +22,37 @@
 
         </header>
 
-        <div>
-            <h1>Tela para cadastrar Cidade</h1> <br><br>
-            <form action="cadastrarcidade" method="POST">
-                <fieldset>
-                    <legend>Por gentileza, preencha os dados a seguir e clique em enviar.</legend><br />
-                    <h3>Digite o nome do estado para incluir as cidades</h3>
-                    <input type="text" name="estadoCadastrarCidade" ><br /><br />
+        <div class="principal"> 
 
-                    <h3>Digite o nome da cidade a ser cadastrada</h3>
-                    <br>
-                    <input type="text" name="novaCidade" ><br /><br />
-                    <input type="submit">   
-                    <br />         
-                </fieldset> 
-            </form>
+            <div class="secao5">
+
+            </div>
+
+            <div class="cadastroCidade">
+
+                <form action="cadastrarcidade" method="POST">
+                    <fieldset>
+                        <legend><a>Por gentileza, preencha os dados a seguir e clique em enviar.</a></legend><br />
+                        Digite o nome do estado para incluir as cidades
+                        <input type="text" name="estadoCadastrarCidade" ><br /><br />
+
+                        Digite o nome da cidade a ser cadastrada
+                        <input type="text" name="novaCidade" ><br /><br />
+                        <input type="submit">   
+                        
+                        </form><br><br>
+
+                        <form action="censoDemograficoAutenticado.jsp" method="post">
+                            <input type="submit" value = "Retornar para a Página Principal">
+                        </form>       
+
+                    </fieldset> 
+            </div>
+        </form>
+
+        <div class="secao6">
+
         </div>
-    </body>
+    </div>
+</body>
 </html>
