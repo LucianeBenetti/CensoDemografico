@@ -45,7 +45,6 @@
                         <form action="censoDemograficoAutenticado.jsp" method="post">
                             <input type="submit" value = "Retornar para a Página Principal">
                         </form>       
-
                     </fieldset> 
             </div>
         </form>
