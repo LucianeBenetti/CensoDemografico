@@ -62,8 +62,8 @@ public class ValidarUsuario extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", login);
                 session.setMaxInactiveInterval(20);
-               request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
-                //request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
+               //request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
             }
             //else {
         }

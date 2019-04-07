@@ -73,7 +73,7 @@ public class Cidades extends HttpServlet {
 
         request.setAttribute("listaCidades", cidades);
 
-        String page = request.getSession().getAttribute("user") == null ? "censoDemografico.jsp" : "censoDemograficoAutenticado.jsp";
+        String page = request.getSession().getAttribute("user") == null ? "censoDemografico.jsp" : "WEB-INF/censoDemograficoAutenticado.jsp";
         request.getRequestDispatcher(page).forward(request, response);
     }
 

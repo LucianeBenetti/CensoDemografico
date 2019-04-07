@@ -38,7 +38,7 @@ public class GravarDadosCidades extends HttpServlet {
                 request.setAttribute("caminho", fullPath);
             }
         }
-        request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
 
     }
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

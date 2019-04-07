@@ -75,7 +75,7 @@ public class CadastrarCidade extends HttpServlet {
             request.setAttribute("caminho", fullPath);
 
         //}
-        request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
 
     }
 

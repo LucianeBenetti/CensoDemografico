@@ -64,7 +64,7 @@ public class CadastrarEstado extends HttpServlet {
             arquivo.close();
        // }
 
-        request.getRequestDispatcher("censoDemograficoAutenticado.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
 
     }
 
