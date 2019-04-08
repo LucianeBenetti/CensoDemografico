@@ -34,7 +34,7 @@
 
             </div>
 
-            <div class="cadastroEstado">
+            <div class="logincadastro">
 
                 <form action="cadastrarestado" method="POST">
                     <fieldset><legend><a>Por gentileza, preencha o campo a seguir e clique em enviar.</a></legend><br />

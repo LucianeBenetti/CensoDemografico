@@ -32,7 +32,7 @@
 
             </div>
 
-            <div class="cadastroCidade">
+            <div class="logincadastro">
 
                 <form action="cadastrarcidade" method="POST">
                     <fieldset>
