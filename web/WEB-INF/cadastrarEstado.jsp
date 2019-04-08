@@ -44,7 +44,7 @@
                         <input type="submit">   <br />         
                 </form><br>
 
-                <form action="WEB-INF/censoDemograficoAutenticado.jsp" method="post">
+                <form action="acessarcensoautenticado" method="post">
                     <input type="submit" value = "Retornar para a Página Principal">
                 </form>       
                 </fieldset> 

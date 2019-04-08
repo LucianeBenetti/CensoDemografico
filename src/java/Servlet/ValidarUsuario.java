@@ -53,7 +53,7 @@ public class ValidarUsuario extends HttpServlet {
         for (int j = 0; j < usuariosCadastrados.size(); j++) {
             log = usuariosCadastrados.get(j).getLogin();
             senha = usuariosCadastrados.get(j).getSenha();
-            //  }      
+
             System.out.println(log);
 
             if ((login.equals(log)) && (password.equals(senha))) {
@@ -64,7 +64,6 @@ public class ValidarUsuario extends HttpServlet {
                 session.setMaxInactiveInterval(20);
                 request.getRequestDispatcher("WEB-INF/censoDemograficoAutenticado.jsp").forward(request, response);
             }
-            //else {
         }
         request.getRequestDispatcher("cadastrarUsuarios.jsp").forward(request, response);
 

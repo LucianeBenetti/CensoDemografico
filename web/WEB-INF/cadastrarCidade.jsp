@@ -43,10 +43,11 @@
                         Digite o nome da cidade a ser cadastrada
                         <input type="text" name="novaCidade" ><br /><br />
                         <input type="submit">   
-                        
+     
+                                             
                         </form><br><br>
 
-                        <form action="WEB-INF/censoDemograficoAutenticado.jsp" method="post">
+                        <form action="acessarcensoautenticado" method="post">
                             <input type="submit" value = "Retornar para a Página Principal">
                         </form>       
                     </fieldset> 

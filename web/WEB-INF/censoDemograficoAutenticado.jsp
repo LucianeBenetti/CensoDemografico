@@ -23,15 +23,15 @@
             Você está logado como: <input type="text" size="20" readonly="" value="<%= usuario%>"> <br><br>
             <% }%>  
             <form action="logoff" method="POST">
-            Deseja sair do sistema? <input type="submit" value="Sair"> <br><br>  
-                
+                Deseja sair do sistema? <input type="submit" value="Sair"> <br><br>  
+
             </form>
 
         </header>
+
         <div class="principal">
 
             <div class="secao1">
-
                 <h3>Atualização de Dados de Cidades Brasileiras</h3>
                 <h4>Escolha um estado para atualizar os dados de uma cidade:</h4><br />
 
@@ -64,17 +64,18 @@
                     </fieldset>  
 
                     <%} %>   
-                    <form action="cadastrarEstado.jsp" method="POST">
+
+                    <form action="acessarcadastroestado" method="POST">
                         <br><br>
                         <input type="submit" value="Cadastrar novo Estado"><br><br>
                     </form>
 
-                    <form action="cadastrarCidade.jsp" method="POST" >
+                    <form action="acessarcadastrocidade" method="POST" >
                         <br><br>
                         <input type="submit" value="Cadastrar Cidades"<br><br>
                     </form>
-
             </div> 
+
             <div class="secao2">
 
                 <% Object cidades = request.getAttribute("listaCidades");
