@@ -25,54 +25,56 @@ public class Cidades extends HttpServlet {
 
         String estado = request.getParameter("estadoSelecionado");
         File arquivoCidades = new File("C:\\SENAC\\Lista3\\" + estado + ".txt");
+        try {
+            FileInputStream encontrarArquivo = new FileInputStream(arquivoCidades);
+            DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
+            byte[] dados = new byte[encontrarArquivo.available()];
+            abrirArquivo.readFully(dados);
 
-        FileInputStream encontrarArquivo = new FileInputStream(arquivoCidades);
-        DataInputStream abrirArquivo = new DataInputStream(encontrarArquivo);
-        byte[] dados = new byte[encontrarArquivo.available()];
-        abrirArquivo.readFully(dados);
+            String conteudoArquivo = new String(dados);
+            String[] c = conteudoArquivo.split(";");
+            ArrayList<String> cidades = new ArrayList<String>();
+            for (int i = 0; i < c.length; i++) {
+                cidades.add(c[i]);
+            }
 
-        String conteudoArquivo = new String(dados);
-        String[] c = conteudoArquivo.split(";");
-        ArrayList<String> cidades = new ArrayList<String>();
-        for (int i = 0; i < c.length; i++) {
-            cidades.add(c[i]);
-        }
-
-        int tamanho = cidades.size();
-        for (int i = 0; i < tamanho - 1; i++) {
-            for (int j = 0; j < tamanho - 1 - i; j++) {
-                if (cidades.get(j).compareTo(cidades.get(j + 1)) > 0) {
-                    String auxiliar = cidades.get(j);
-                    cidades.set(j, cidades.get(j + 1));
-                    cidades.set(j + 1, auxiliar);
+            int tamanho = cidades.size();
+            for (int i = 0; i < tamanho - 1; i++) {
+                for (int j = 0; j < tamanho - 1 - i; j++) {
+                    if (cidades.get(j).compareTo(cidades.get(j + 1)) > 0) {
+                        String auxiliar = cidades.get(j);
+                        cidades.set(j, cidades.get(j + 1));
+                        cidades.set(j + 1, auxiliar);
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < cidades.size(); i++) {
-            String cidade = cidades.get(i);
-            File conteudoCidades = new File("C:\\SENAC\\Lista3\\" + cidade + ".txt");
+            for (int i = 0; i < cidades.size(); i++) {
+                String cidade = cidades.get(i);
+                File conteudoCidades = new File("C:\\SENAC\\Lista3\\" + cidade + ".txt");
 
-            FileInputStream arquivo = new FileInputStream(conteudoCidades);
-            DataInputStream lerArquivo = new DataInputStream(arquivo);
-            byte[] dadosArquivo = new byte[arquivo.available()];
-            lerArquivo.readFully(dadosArquivo);
-            String conteudo = new String(dadosArquivo);
+                FileInputStream arquivo = new FileInputStream(conteudoCidades);
+                DataInputStream lerArquivo = new DataInputStream(arquivo);
+                byte[] dadosArquivo = new byte[arquivo.available()];
+                lerArquivo.readFully(dadosArquivo);
+                String conteudo = new String(dadosArquivo);
 
-            String[] conteudoCidade = conteudo.split(";");
-            for (int j = 0; j < conteudoCidade.length; j++) {
+                String[] conteudoCidade = conteudo.split(";");
+                for (int j = 0; j < conteudoCidade.length; j++) {
 
-                request.setAttribute(i + "populacao", conteudoCidade[0]);
-                request.setAttribute(i + "area", conteudoCidade[1]);
-                request.setAttribute(i + "densidade", conteudoCidade[2]);
-                request.setAttribute(i + "pib", conteudoCidade[3]);
+                    request.setAttribute(i + "populacao", conteudoCidade[0]);
+                    request.setAttribute(i + "area", conteudoCidade[1]);
+                    request.setAttribute(i + "densidade", conteudoCidade[2]);
+                    request.setAttribute(i + "pib", conteudoCidade[3]);
 
+                }
+                request.setAttribute("conteudo", new Integer(i));
             }
-            request.setAttribute("conteudo", new Integer(i));
+
+            request.setAttribute("listaCidades", cidades);
+        } catch (FileNotFoundException e) {
+
         }
-
-        request.setAttribute("listaCidades", cidades);
-
         String page = request.getSession().getAttribute("user") == null ? "censoDemografico.jsp" : "WEB-INF/censoDemograficoAutenticado.jsp";
         request.getRequestDispatcher(page).forward(request, response);
     }

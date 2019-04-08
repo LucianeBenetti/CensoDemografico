@@ -62,7 +62,9 @@
                         </form>
                     </fieldset>  
 
-                    <%} %>   
+                    <%} else {
+                            out.println("Por gentileza, selecione um estado para prosseguir!");
+                        }%>   
             </div> 
             <div class="secao2">
 

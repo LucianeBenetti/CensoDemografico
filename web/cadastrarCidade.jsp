@@ -32,7 +32,7 @@
 
             </div>
 
-            <div class="cadastroCidade">
+            <div class="logincadastro">
 
                 <form action="cadastrarcidade" method="POST">
                     <fieldset>
@@ -46,7 +46,7 @@
                         
                         </form><br><br>
 
-                        <form action="WEB-INF/censoDemograficoAutenticado.jsp" method="post">
+                        <form action="censoDemograficoAutenticado.jsp" method="post">
                             <input type="submit" value = "Retornar para a Página Principal">
                         </form>       
                     </fieldset> 

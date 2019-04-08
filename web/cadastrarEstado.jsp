@@ -34,7 +34,7 @@
 
             </div>
 
-            <div class="cadastroEstado">
+            <div class="logincadastro">
 
                 <form action="cadastrarestado" method="POST">
                     <fieldset><legend><a>Por gentileza, preencha o campo a seguir e clique em enviar.</a></legend><br />
@@ -44,7 +44,7 @@
                         <input type="submit">   <br />         
                 </form><br>
 
-                <form action="WEB-INF/censoDemograficoAutenticado.jsp" method="post">
+                <form action="censoDemograficoAutenticado.jsp" method="post">
                     <input type="submit" value = "Retornar para a Página Principal">
                 </form>       
                 </fieldset> 

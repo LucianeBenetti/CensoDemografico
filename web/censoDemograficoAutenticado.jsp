@@ -63,7 +63,9 @@
 
                     </fieldset>  
 
-                    <%} %>   
+                    <%} else {
+                            out.println("Por gentileza, selecione um estado para prosseguir!");
+                        }%>    
                     <form action="cadastrarEstado.jsp" method="POST">
                         <br><br>
                         <input type="submit" value="Cadastrar novo Estado"><br><br>
